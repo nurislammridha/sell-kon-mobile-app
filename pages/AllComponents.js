@@ -13,10 +13,22 @@ import SelectProducts from '../components/SelectProducts'
 import PlusMinus from '../components/PlusMinus'
 import PaymentCard from '../components/PaymentCard'
 import CreditDebit from '../components/CreditDebit'
+import IconButton from '../components/IconButton'
+import Tab from '../components/Tab'
+import OrderList from '../components/OrderList'
 
 const AllComponents = () => {
     return (
         <ScrollView>
+            <View style={styles.container}>
+                <OrderList />
+            </View>
+            <View style={styles.container}>
+                <Tab />
+            </View>
+            <View style={styles.container}>
+                <IconButton />
+            </View>
             <View style={styles.container}>
                 <CreditDebit />
             </View>
