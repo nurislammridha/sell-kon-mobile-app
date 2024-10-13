@@ -16,10 +16,14 @@ import CreditDebit from '../components/CreditDebit'
 import IconButton from '../components/IconButton'
 import Tab from '../components/Tab'
 import OrderList from '../components/OrderList'
+import OrderTimeLine from '../components/OrderTimeLine'
 
 const AllComponents = () => {
     return (
         <ScrollView>
+            <View style={styles.container}>
+                <OrderTimeLine />
+            </View>
             <View style={styles.container}>
                 <OrderList />
             </View>
