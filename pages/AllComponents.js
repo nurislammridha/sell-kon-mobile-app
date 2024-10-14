@@ -17,11 +17,15 @@ import IconButton from '../components/IconButton'
 import Tab from '../components/Tab'
 import OrderList from '../components/OrderList'
 import OrderTimeLine from '../components/OrderTimeLine'
+import Slider from '../components/Slider'
 
 const AllComponents = () => {
     return (
         <ScrollView>
             <View style={styles.container}>
+                <Slider />
+            </View>
+            {/* <View style={styles.container}>
                 <OrderTimeLine />
             </View>
             <View style={styles.container}>
@@ -73,7 +77,7 @@ const AllComponents = () => {
             </View>
             <View style={styles.container}>
                 <PlusMinus />
-            </View>
+            </View> */}
         </ScrollView>
     )
 }
