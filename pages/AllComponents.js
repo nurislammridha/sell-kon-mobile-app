@@ -22,10 +22,10 @@ import Slider from '../components/Slider'
 const AllComponents = () => {
     return (
         <ScrollView>
-            <View style={styles.container}>
-                <Slider />
-            </View>
             {/* <View style={styles.container}>
+                <Slider />
+            </View> */}
+            <View style={styles.container}>
                 <OrderTimeLine />
             </View>
             <View style={styles.container}>
@@ -77,7 +77,7 @@ const AllComponents = () => {
             </View>
             <View style={styles.container}>
                 <PlusMinus />
-            </View> */}
+            </View>
         </ScrollView>
     )
 }

@@ -17,7 +17,8 @@ export default SlideItem
 const styles = StyleSheet.create({
     container: {
         width,
-        padding: 16
+        padding: 16,
+        backgroundColor: "#FFF"
     },
     img: {
         width: "100%",
