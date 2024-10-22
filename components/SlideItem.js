@@ -1,14 +1,14 @@
 import React from 'react'
 import { Dimensions, Image, StyleSheet, View } from 'react-native'
-const { width, height } = Dimensions.get('screen')
-const SlideItem = ({ item }) => {
+
+const SlideItem = ({ item, width, height, isDescriptionPage }) => {
 
     return (
-        <View style={styles.container}>
+        <View style={isDescriptionPage ? { ...styles.desContainer, width } : { ...styles.container, width }}>
             <Image
                 source={item.img}
                 resizeMethod='contain'
-                style={styles.img}
+                style={isDescriptionPage ? { ...styles.desImg, height } : { ...styles.img, height }}
             />
         </View>
     )
@@ -16,13 +16,22 @@ const SlideItem = ({ item }) => {
 export default SlideItem
 const styles = StyleSheet.create({
     container: {
-        width,
+        padding: 16,
+        backgroundColor: "#FFF",
+    },
+    desContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
         padding: 16,
         backgroundColor: "#FFF"
     },
     img: {
         width: "100%",
-        height: 115,
+        borderRadius: 10
+    },
+    desImg: {
+        width: 254,
         borderRadius: 10
     }
 })

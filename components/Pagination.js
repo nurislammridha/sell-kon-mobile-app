@@ -6,13 +6,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         gap: 4,
-        marginTop: -30
     },
     dot: {
         width: 12,
         height: 12,
         borderRadius: 6,
-        backgroundColor: "#FFF",
+        backgroundColor: "#FFF"
 
     },
     dotActive: {
@@ -20,9 +19,9 @@ const styles = StyleSheet.create({
     }
 })
 const { width } = Dimensions.get("screen")
-const Pagination = ({ data, scrollX, index }) => {
+const Pagination = ({ data, scrollX, index, marginTop, isDescriptionPage }) => {
     return (
-        <View style={styles.container}>
+        <View style={{ ...styles.container, marginTop }}>
             {data.map((_, idx) => {
                 const inputRange = [(idx - 1) * width, idx * width, (idx + 1) * width]
                 const dotWidth = scrollX.interpolate({
@@ -38,7 +37,9 @@ const Pagination = ({ data, scrollX, index }) => {
                 return <Animated.View
                     key={idx.toString()}
                     style={[styles.dot, { width: dotWidth, opacity },
-                    idx === index && styles.dotActive
+                    isDescriptionPage && { backgroundColor: "#D9D9D9" },
+                    idx === index && styles.dotActive, ,
+                    idx === index && isDescriptionPage && { backgroundColor: "#000" }
                     ]}
                 />
             })}

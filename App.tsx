@@ -10,12 +10,14 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import Pages from './pages/Home';
 import AllComponents from './pages/AllComponents';
+import Details from './pages/Details';
 const App = () => {
 
   return (
     <View>
       {/* <Pages /> */}
-      <AllComponents />
+      {/* <AllComponents /> */}
+      <Details />
     </View>
   );
 }
