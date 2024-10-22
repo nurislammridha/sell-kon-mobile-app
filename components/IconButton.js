@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 import PrimaText from './PrimaText'
-import icon from '../assets/icons/google.png'
+import icn from '../assets/icons/google.png'
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#FFF",
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         borderRadius: 5
     }
 })
-const IconButton = ({ width = 200, height = 56, imgWidth = 24, imgHeight = 24 }) => {
+const IconButton = ({ width = 200, height = 56, imgWidth = 24, imgHeight = 24, icon = { icn } }) => {
     return (
         <View style={{ ...styles.container, width, height }}>
             <Image source={icon} style={{ width: imgWidth, height: imgHeight, marginRight: 2 }} />

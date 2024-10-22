@@ -10,26 +10,20 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: "row",
         justifyContent: 'space-between',
-        height: 24,
         alignItems: 'center',
-        width: 80,
         backgroundColor: "#FFF"
-    },
-    img: {
-        width: 24,
-        height: 24
     }
 })
-const PlusMinus = () => {
+const PlusMinus = ({ width = 80, height = 24, btnWidth = 24, btnHeight = 24 }) => {
     return (
-        <View style={styles.container}>
-            <Image source={minus} style={styles.img} />
+        <View style={[styles.container, { width, height }]}>
+            <Image source={minus} style={{ width: btnWidth, height: btnHeight }} />
             <PrimaText
                 fontSize={16}
                 fontWeight='medium'
                 content='1'
             />
-            <Image source={plus} style={styles.img} />
+            <Image source={plus} style={{ width: btnWidth, height: btnHeight }} />
         </View>
     )
 }

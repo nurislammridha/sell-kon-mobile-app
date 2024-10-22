@@ -2,9 +2,11 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import PrimaText from './PrimaText'
 import PlusMinus from './PlusMinus'
+import MyButton from './MyButton'
 const styles = StyleSheet.create({
   container: {
-    padding: 16
+    padding: 16,
+    backgroundColor: '#FFF'
   },
   price: {
     display: "flex",
@@ -12,6 +14,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 20
+  },
+  colorsCon: {
+    marginTop: 20
+  },
+  colors: {
+    marginTop: 12,
+    display: 'flex',
+    flexDirection: 'row'
   }
 })
 const DetailsBody = () => {
@@ -50,7 +60,34 @@ const DetailsBody = () => {
             marginTop={10}
           />
         </View>
-        <PlusMinus />
+        <PlusMinus
+          width={106}
+          height={32}
+          btnWidth={32}
+          btnHeight={32}
+        />
+      </View>
+      <View style={styles.colorsCon}>
+        <PrimaText
+          fontSize={14}
+          content='Colors'
+          color='#7D7D7D'
+        />
+        <View style={styles.colors}>
+          {["Black", "Red", "White"].map((item, index) => (
+            <MyButton
+              key={index}
+              borderWidth={1}
+              borderColor="#E8E8E8"
+              color="#000"
+              content={item}
+              width={80}
+              height={32}
+              marginRight={8}
+            />
+
+          ))}
+        </View>
       </View>
     </View>
   )

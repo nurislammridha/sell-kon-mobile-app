@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "#FAFAFA",
-        width: 163,
+        // width: 163,
         height: 249,
         padding: 12
     },
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
         marginTop: 16,
         fontSize: 10,
         color: "#878787",
-        lineHeight: 18
+        lineHeight: 18,
+        textDecorationLine: 'line-through'
     },
     price: {
         fontSize: 12,
@@ -39,10 +40,10 @@ const styles = StyleSheet.create({
         lineHeight: 18
     }
 })
-const Product = () => {
+const Product = ({ marginTop = 0, width = 163 }) => {
     return (
-        <View style={styles.container}>
-            <View >
+        <View style={[styles.container, { marginTop, width }]}>
+            <View style={styles.proImgCon}>
                 <Image source={pro} style={styles.proImg} />
             </View>
             <View style={styles.txtCon}>
