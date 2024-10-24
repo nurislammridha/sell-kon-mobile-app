@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
         fontSize: 16
     }
 })
-const FullWidthButton = () => {
+const FullWidthButton = ({ content = "Please Order" }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.txt}>Please Order</Text>
+            <Text style={styles.txt}>{content}</Text>
         </View>
     )
 }

@@ -7,11 +7,12 @@ import pro from '../assets/images/pro3.jpg'
 import DetailsBody from '../components/DetailsBody'
 import PrimaText from '../components/PrimaText'
 import Product from '../components/Product'
-import cart from '../assets/icons/cart icon select.png'
+import cart from '../assets/icons/cart_icon_select.png'
 import IconButton from '../components/IconButton'
+import MyButton from '../components/MyButton'
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 16,
+        // paddingTop: 16,
         width: "100%",
         backgroundColor: "#FAFAFA"
     },
@@ -42,9 +43,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 16,
-        backgroundColor: "#F00",
+        // backgroundColor: "#888",
         position: 'absolute',
-        bottom: 100,
+        bottom: 56,
         height: 60,
         alignItems: 'center',
         width: "100%"
@@ -88,10 +89,18 @@ const Details = () => {
             </ScrollView>
             <View style={styles.footer}>
                 <IconButton
+                    backgroundColor='#000'
+                    icon={cart}
                     width={88}
                     height={44}
                     imgWidth={24}
                     imgHeight={24}
+                />
+                <MyButton
+                    content='Buy Now'
+                    width={width - 140}
+                    height={44}
+                    backgroundColor='#FF2C7A'
                 />
             </View>
         </View>

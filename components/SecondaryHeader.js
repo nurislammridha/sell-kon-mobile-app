@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
         paddingLeft: 16,
         paddingRight: 16,
-        paddingTop: 4,
-        paddingBottom: 4,
+        paddingTop: 16,
+        paddingBottom: 16,
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         height: 20
     }
 })
-const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false }) => {
+const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Products" }) => {
     return (
         <View style={styles.container}>
             <Image source={arrow} style={styles.img} />

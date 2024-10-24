@@ -4,7 +4,6 @@ import PrimaText from './PrimaText'
 import icn from '../assets/icons/google.png'
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#FFF",
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -14,11 +13,11 @@ const styles = StyleSheet.create({
         borderRadius: 5
     }
 })
-const IconButton = ({ width = 200, height = 56, imgWidth = 24, imgHeight = 24, icon = { icn } }) => {
+const IconButton = ({ width = 200, height = 56, imgWidth = 24, imgHeight = 24, icon = { icn }, isText = false, backgroundColor = "#FFF" }) => {
     return (
-        <View style={{ ...styles.container, width, height }}>
+        <View style={{ ...styles.container, width, height, backgroundColor }}>
             <Image source={icon} style={{ width: imgWidth, height: imgHeight, marginRight: 2 }} />
-            <PrimaText fontSize={16} color='#000' />
+            {isText && <PrimaText fontSize={16} color='#000' />}
         </View>
     )
 }
