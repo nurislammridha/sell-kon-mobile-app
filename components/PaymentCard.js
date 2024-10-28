@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         marginRight: 16
     }
 })
-const PaymentCard = () => {
+const PaymentCard = ({ isLineTwo = true }) => {
     return (
         <View style={styles.container}>
             {[1, 2, 3, 4].map((item, index) => (
@@ -47,13 +47,14 @@ const PaymentCard = () => {
                                 color='#505050'
                                 content='Account Number'
                             />
-                            <PrimaText
+                            {isLineTwo && <PrimaText
                                 fontSize={14}
                                 fontWeight='medium'
                                 color='#505050'
                                 marginTop={4}
                                 content="xxx xxxx 3450"
-                            />
+                            />}
+
                         </View>
                     </View>
                     <Image source={rightIcon} style={styles.img} />

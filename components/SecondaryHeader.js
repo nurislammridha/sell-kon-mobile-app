@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         height: 20
     }
 })
-const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Products" }) => {
+const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Products", isRightIcon = true }) => {
     return (
         <View style={styles.container}>
             <Image source={arrow} style={styles.img} />
@@ -29,10 +29,10 @@ const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Pro
                     fontSize={18}
                     fontWeight='medium'
                     color='#000'
-                    content='5 Products'
+                    content={content}
                 />
             </View>}
-            <Image source={icon} style={styles.img} />
+            {isRightIcon ? <Image source={icon} style={styles.img} /> : <View></View>}
         </View>
     )
 }

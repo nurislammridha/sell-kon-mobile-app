@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
         height: 30
     }
 })
-const AddressOrder = () => {
+const AddressOrder = ({ isOrder = false }) => {
     return (
         <View style={styles.container}>
-            <View style={styles.order}>
+            {isOrder && <View style={styles.order}>
                 <View>
                     <PrimaText
                         fontSize={16}
@@ -51,7 +51,7 @@ const AddressOrder = () => {
                     color='#575757'
                     fontSize={12}
                 />
-            </View>
+            </View>}
             <View style={styles.address}>
                 <View style={{ width: 238 }}>
                     <PrimaText
