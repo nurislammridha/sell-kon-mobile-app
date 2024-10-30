@@ -16,6 +16,8 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderPage from './pages/OrderPage';
 import PaymentPage from './pages/PaymentPage';
 import OrderListPage from './pages/OrderListPage';
+import OrderDetails from './pages/OrderDetails';
+import SignUpPage from './pages/SignUpPage';
 const App = () => {
 
   return (
@@ -24,10 +26,12 @@ const App = () => {
       {/* <AllComponents /> */}
       {/* <Details /> */}
       {/* <AllProductsPage /> */}
-      <CheckoutPage />
+      {/* <CheckoutPage /> */}
       {/* <OrderPage /> */}
       {/* <PaymentPage /> */}
       {/* <OrderListPage /> */}
+      <OrderDetails />
+      {/* <SignUpPage /> */}
     </View>
   );
 }

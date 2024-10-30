@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     }
 })
-const OrderSummary = ({ isPromo = false }) => {
+const OrderSummary = ({ isPromo = false, isOrderBtn = true }) => {
     return (
         <View style={styles.container}>
             <PrimaText
@@ -87,7 +87,7 @@ const OrderSummary = ({ isPromo = false }) => {
                 content="*Order Delivery Policy for this order can be found here"
                 color='#707070'
             />
-            <MyButton
+            {isOrderBtn && <MyButton
                 width={"100%"}
                 height={45}
                 content={"Please Order"}
@@ -95,7 +95,8 @@ const OrderSummary = ({ isPromo = false }) => {
                 color='#FFF'
                 fontSize={16}
                 marginTop={18}
-            />
+            />}
+
         </View>
     )
 }

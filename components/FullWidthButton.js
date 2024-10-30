@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
         fontSize: 16
     }
 })
-const FullWidthButton = ({ content = "Please Order" }) => {
+const FullWidthButton = ({ content = "Please Order", marginTop = 0 }) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { marginTop }]}>
             <Text style={styles.txt}>{content}</Text>
         </View>
     )

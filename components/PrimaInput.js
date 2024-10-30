@@ -29,14 +29,15 @@ const styles = StyleSheet.create({
         marginRight: 10
     }
 })
-const PrimaInput = ({ leftIcon = false, width = 265, height = 45, placeholder = "Enter", backgroundColor = "#FFF" }) => {
+const PrimaInput = ({ leftIcon = false, width = 265, height = 45, placeholder = "Enter", backgroundColor = "#FFF", marginTop = 0, type }) => {
     return (
-        <View style={{ ...styles.container, width, height, backgroundColor }}>
+        <View style={{ ...styles.container, width, height, backgroundColor, marginTop }}>
             {leftIcon && <Image source={search} style={styles.img} />}
             <TextInput
                 style={{ ...styles.input }}
                 value=''
                 placeholder={placeholder}
+                keyboardType={type}
             />
         </View>
     )
