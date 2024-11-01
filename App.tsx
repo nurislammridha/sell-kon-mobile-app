@@ -19,12 +19,17 @@ import OrderListPage from './pages/OrderListPage';
 import OrderDetails from './pages/OrderDetails';
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
+import DeliveryAddress from './pages/DeliveryAddress';
+import AddAddress from './pages/AddAddress';
+import EditAddress from './pages/EditAddress';
+import UserInfo from './pages/UserInfo';
+import UserTab from './pages/UserTab';
 const App = () => {
 
   return (
     <View>
       {/* <Pages /> */}
-      <AllComponents />
+      {/* <AllComponents /> */}
       {/* <Details /> */}
       {/* <AllProductsPage /> */}
       {/* <CheckoutPage /> */}
@@ -34,6 +39,11 @@ const App = () => {
       {/* <OrderDetails /> */}
       {/* <SignUpPage /> */}
       {/* <SignInPage /> */}
+      {/* <DeliveryAddress /> */}
+      {/* <AddAddress /> */}
+      {/* <EditAddress /> */}
+      {/* <UserInfo /> */}
+      <UserTab />
     </View>
   );
 }

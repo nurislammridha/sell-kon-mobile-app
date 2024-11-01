@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
 
-const PrimaSelect = ({ marginTop = 0, paddingBottom = 0, items = [], setItems, value = [], setValue }) => {
+const PrimaSelect = ({ marginTop = 0, paddingBottom = 0, items = [], setItems, value = [], setValue, width = "100%" }) => {
     const [open, setOpen] = useState(false);
     // const [value, setValue] = useState([]);
     // const [items, setItems] = useState([
@@ -17,7 +17,8 @@ const PrimaSelect = ({ marginTop = 0, paddingBottom = 0, items = [], setItems, v
     return (
         <View style={{
             marginTop,
-            paddingBottom
+            paddingBottom,
+            width
         }}>
             <DropDownPicker
                 open={open}
