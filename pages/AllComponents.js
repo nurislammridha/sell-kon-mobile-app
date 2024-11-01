@@ -18,6 +18,7 @@ import Tab from '../components/Tab'
 import OrderList from '../components/OrderList'
 import OrderTimeLine from '../components/OrderTimeLine'
 import Slider from '../components/Slider'
+import PrimaSelect from '../components/PrimaSelect'
 
 const AllComponents = () => {
     return (
@@ -25,7 +26,7 @@ const AllComponents = () => {
             {/* <View style={styles.container}>
                 <Slider />
             </View> */}
-            <View style={styles.container}>
+            {/* <View style={styles.container}>
                 <OrderTimeLine />
             </View>
             <View style={styles.container}>
@@ -74,9 +75,12 @@ const AllComponents = () => {
             </View>
             <View style={styles.container}>
                 <SelectProducts />
-            </View>
+            </View> */}
             <View style={styles.container}>
                 <PlusMinus />
+            </View>
+            <View style={styles.container}>
+                <PrimaSelect />
             </View>
         </ScrollView>
     )

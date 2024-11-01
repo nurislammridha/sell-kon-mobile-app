@@ -18,20 +18,22 @@ import PaymentPage from './pages/PaymentPage';
 import OrderListPage from './pages/OrderListPage';
 import OrderDetails from './pages/OrderDetails';
 import SignUpPage from './pages/SignUpPage';
+import SignInPage from './pages/SignInPage';
 const App = () => {
 
   return (
     <View>
       {/* <Pages /> */}
-      {/* <AllComponents /> */}
+      <AllComponents />
       {/* <Details /> */}
       {/* <AllProductsPage /> */}
       {/* <CheckoutPage /> */}
       {/* <OrderPage /> */}
       {/* <PaymentPage /> */}
       {/* <OrderListPage /> */}
-      <OrderDetails />
+      {/* <OrderDetails /> */}
       {/* <SignUpPage /> */}
+      {/* <SignInPage /> */}
     </View>
   );
 }

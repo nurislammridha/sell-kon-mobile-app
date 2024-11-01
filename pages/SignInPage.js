@@ -27,31 +27,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 })
-const SignUpPage = () => {
+const SignInPage = () => {
     return (
         <View style={styles.container}>
             <Header />
             <ScrollView>
                 <View style={styles.inputCon}>
                     <PrimaText
-                        content='Create your Sellkon account'
+                        content='Welcome back, we missed you!'
                         fontSize={20}
                         fontWeight='medium'
                         color='#000'
-                    />
-                    <PrimaText
-                        content='Full Name'
-                        fontSize={16}
-                        fontWeight='medium'
-                        color='#959595'
-                        marginTop={40}
-                    />
-                    <PrimaInput
-                        type={"text"}
-                        placeholder='Enter full name'
-                        height={56}
-                        width={"100%"}
-                        marginTop={10}
                     />
                     <PrimaText
                         content='Mail or Phone'
@@ -81,22 +67,9 @@ const SignUpPage = () => {
                         width={"100%"}
                         marginTop={10}
                     />
-                    <PrimaText
-                        content='Confirm Password'
-                        fontSize={16}
-                        fontWeight='medium'
-                        color='#959595'
-                        marginTop={24}
-                    />
-                    <PrimaInput
-                        type={"password"}
-                        placeholder='confirm password'
-                        height={56}
-                        width={"100%"}
-                        marginTop={10}
-                    />
+
                     <FullWidthButton
-                        content='Sign up'
+                        content='Sign In'
                         marginTop={40}
                     />
                     <View style={styles.or}>
@@ -134,4 +107,4 @@ const SignUpPage = () => {
     )
 }
 
-export default SignUpPage
+export default SignInPage
