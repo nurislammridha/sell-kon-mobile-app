@@ -19,6 +19,7 @@ import OrderList from '../components/OrderList'
 import OrderTimeLine from '../components/OrderTimeLine'
 import Slider from '../components/Slider'
 import PrimaSelect from '../components/PrimaSelect'
+import AddressRadio from '../components/AddressRadio'
 
 const AllComponents = () => {
     return (
@@ -81,6 +82,9 @@ const AllComponents = () => {
             </View>
             <View style={styles.container}>
                 <PrimaSelect />
+            </View>
+            <View style={styles.container}>
+                <AddressRadio />
             </View>
         </ScrollView>
     )
