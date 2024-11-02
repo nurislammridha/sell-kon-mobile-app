@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 const styles = StyleSheet.create({
     productsCon: {
@@ -55,19 +55,23 @@ const styles = StyleSheet.create({
         color: "#F54C54"
     },
 })
-const HomeProducts = ({ title }) => {
+const HomeProducts = ({ title, navigation, route }) => {
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>{title}</Text>
             <View style={styles.products}>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("Details")}
+                >
+                    <View style={styles.product}>
+                        <View style={styles.proCon}>
+                            <Image source={pro} style={styles.proImg} />
+                        </View>
+                        <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
+                        <Text style={styles.del}>&#2547; 45,00,000</Text>
+                        <Text style={styles.price}>&#2547; 45,00,000</Text>
                     </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.product}>
                     <View style={styles.proCon}>
                         <Image source={pro} style={styles.proImg} />

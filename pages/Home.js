@@ -24,7 +24,7 @@ import Footer from '../components/Footer';
 import HomeProducts from '../components/HomeProducts';
 import CategoryProducts from '../components/CategoryProducts';
 import AllProducts from '../components/AllProducts';
-const Home = () => {
+const Home = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             {/* header section */}
@@ -35,7 +35,7 @@ const Home = () => {
                 {/* category section */}
                 <Category />
                 {/* product section */}
-                <HomeProducts title={"Sellkon Mall"} />
+                <HomeProducts title={"Sellkon Mall"} navigation={navigation} route={route} />
                 <HomeProducts title={"Trending Product"} />
                 <HomeProducts title={"Popular Product"} />
                 {/* category product section */}

@@ -24,10 +24,12 @@ import AddAddress from './pages/AddAddress';
 import EditAddress from './pages/EditAddress';
 import UserInfo from './pages/UserInfo';
 import UserTab from './pages/UserTab';
+import ShopPage from './pages/ShopPage';
+
 const App = () => {
 
   return (
-    <View>
+    <>
       {/* <Pages /> */}
       {/* <AllComponents /> */}
       {/* <Details /> */}
@@ -43,8 +45,76 @@ const App = () => {
       {/* <AddAddress /> */}
       {/* <EditAddress /> */}
       {/* <UserInfo /> */}
-      <UserTab />
-    </View>
+      {/* <UserTab /> */}
+      <ShopPage />
+    </>
   );
 }
 export default App;
+{/* <NavigationContainer>
+<Stack.Navigator
+  initialRouteName="Home"
+// headerMode="none"
+>
+  <Stack.Screen
+    name="Home"
+    component={Pages}
+  />
+  <Stack.Screen
+    name="Details"
+    component={Details}
+  />
+  <Stack.Screen
+    name="AllProducts"
+    component={AllProductsPage}
+  />
+  <Stack.Screen
+    name="CheckOut"
+    component={CheckoutPage}
+  />
+  <Stack.Screen
+    name="Order"
+    component={OrderPage}
+  />
+  <Stack.Screen
+    name="Payment"
+    component={PaymentPage}
+  />
+  <Stack.Screen
+    name="OrderList"
+    component={OrderListPage}
+  />
+  <Stack.Screen
+    name="OrderDetails"
+    component={OrderDetails}
+  />
+  <Stack.Screen
+    name="SignUpPage"
+    component={SignUpPage}
+  />
+  <Stack.Screen
+    name="SignInPage"
+    component={SignInPage}
+  />
+  <Stack.Screen
+    name="DeliveryAddress"
+    component={DeliveryAddress}
+  />
+  <Stack.Screen
+    name="AddAddress"
+    component={AddAddress}
+  />
+  <Stack.Screen
+    name="EditAddress"
+    component={EditAddress}
+  />
+  <Stack.Screen
+    name="UserInfo"
+    component={UserInfo}
+  />
+  <Stack.Screen
+    name="UserTab"
+    component={UserTab}
+  />
+</Stack.Navigator>
+</NavigationContainer> */}
