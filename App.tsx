@@ -33,7 +33,7 @@ const App = () => {
       {/* <Pages /> */}
       {/* <AllComponents /> */}
       {/* <Details /> */}
-      {/* <AllProductsPage /> */}
+      <AllProductsPage />
       {/* <CheckoutPage /> */}
       {/* <OrderPage /> */}
       {/* <PaymentPage /> */}
@@ -46,7 +46,7 @@ const App = () => {
       {/* <EditAddress /> */}
       {/* <UserInfo /> */}
       {/* <UserTab /> */}
-      <ShopPage />
+      {/* <ShopPage /> */}
     </>
   );
 }

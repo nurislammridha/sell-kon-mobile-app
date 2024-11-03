@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
+import PrimaText from './PrimaText'
 const styles = StyleSheet.create({
     productsCon: {
         marginTop: 10,
@@ -71,6 +72,12 @@ const styles = StyleSheet.create({
         borderColor: "#FAFAFA",
         borderWidth: 1,
     },
+    all: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     allProImg: {
         width: 100,
         height: 100
@@ -81,37 +88,24 @@ const AllProducts = () => {
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>All Product</Text>
             <View style={styles.allProducts}>
-                <View style={styles.allProduct}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.allProImg} />
+                {[1, 2, 3, 4, 5, 6, 7].map((_, index) => (
+                    <View style={styles.allProduct}>
+                        <View style={styles.proCon}>
+                            <Image source={pro} style={styles.allProImg} />
+                        </View>
+                        <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
+                        <Text style={styles.del}>&#2547; 45,00,000</Text>
+                        <Text style={styles.price}>&#2547; 45,00,000</Text>
                     </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
-                <View style={styles.allProduct}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.allProImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
-                <View style={styles.allProduct}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.allProImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
-                <View style={styles.allProduct}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.allProImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
+                ))}
+
+                <View style={[styles.allProduct, styles.all]}>
+                    <PrimaText
+                        content='VIEW ALL'
+                        color='#888'
+                        fontWeight='medium'
+                        fontSize={22}
+                    />
                 </View>
             </View>
         </View>

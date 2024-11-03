@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
         color: "#F54C54"
     },
 })
-const HomeProducts = ({ title, navigation, route }) => {
+const HomeProducts = ({ title }) => {
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>{title}</Text>
             <View style={styles.products}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("Details")}
+                // onPress={() => navigation.navigate("Details")}
                 >
                     <View style={styles.product}>
                         <View style={styles.proCon}>

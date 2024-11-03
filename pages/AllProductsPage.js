@@ -3,6 +3,7 @@ import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import filter from '../assets/icons/filter.png'
 import Product from '../components/Product'
+import Filter from '../components/Filter'
 const styles = StyleSheet.create({
     container: {
         width: "100%",
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
 })
 const AllProductsPage = () => {
     const { width } = Dimensions.get('screen')
-    return (
+    return (<>
         <View style={styles.container}>
             <SecondaryHeader
                 icon={filter}
@@ -46,7 +47,8 @@ const AllProductsPage = () => {
             </ScrollView>
 
         </View>
-    )
+        <Filter />
+    </>)
 }
 
 export default AllProductsPage
