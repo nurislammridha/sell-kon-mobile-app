@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 })
-const SignUpPage = () => {
+const SignUpPage = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <ScrollView>
                 <View style={styles.inputCon}>
                     <PrimaText
@@ -126,7 +126,7 @@ const SignUpPage = () => {
                         marginTop={32}
                         content='Already have an account? Sign in'
                         fontSize={20}
-                        fontWeight='bold'
+                        fontWeight='medium'
                     />
                 </View>
             </ScrollView>

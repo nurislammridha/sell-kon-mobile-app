@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         borderBottomColor: "#F5F5F5"
     }
 })
-const PaymentPage = () => {
+const PaymentPage = ({ navigation }) => {
     const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
@@ -50,6 +50,7 @@ const PaymentPage = () => {
                 isMiddle
                 content='Payment Method'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <ScrollView>
                 <View style={{ paddingLeft: 16 }}>
@@ -85,6 +86,7 @@ const PaymentPage = () => {
                 <View style={[styles.proRel, { paddingBottom: 100 }]}>
                     <PaymentCard
                         isLineTwo={false}
+
                     />
                 </View>
 

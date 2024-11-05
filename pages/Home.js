@@ -24,29 +24,31 @@ import Footer from '../components/Footer';
 import HomeProducts from '../components/HomeProducts';
 import CategoryProducts from '../components/CategoryProducts';
 import AllProducts from '../components/AllProducts';
-const Home = () => {
+const Home = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             {/* header section */}
-            <Header />
+            <Header navigation={navigation} />
             <ScrollView>
                 {/* banner section */}
                 <Slider />
                 {/* category section */}
                 <Category />
                 {/* product section */}
-                <HomeProducts title={"Sellkon Mall"} />
+                <HomeProducts title={"Sellkon Mall"} navigation={navigation} route={route} />
                 <HomeProducts title={"Trending Product"} />
                 <HomeProducts title={"Popular Product"} />
                 {/* category product section */}
-                <CategoryProducts />
+                <CategoryProducts content="Our Shops" navigation={navigation} url={"Shop"} />
+                {/* category product section */}
+                <CategoryProducts content='Categories' navigation={navigation} url="Home" />
                 {/* All products section */}
                 <View style={styles.pb}>
-                    <AllProducts />
+                    <AllProducts navigation={navigation} />
                 </View>
             </ScrollView>
             {/* footer section */}
-            <Footer />
+            <Footer navigation={navigation} />
         </View>
     );
 }

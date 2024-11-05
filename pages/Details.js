@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
         width: "100%"
     }
 })
-const Details = () => {
+const Details = ({ navigation, route }) => {
     const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
-            <SecondaryHeader icon={share} />
+            <SecondaryHeader icon={share} navigation={navigation} />
             <ScrollView>
                 <View style={styles.slider}>
                     <Slider
@@ -97,10 +97,12 @@ const Details = () => {
                     imgHeight={24}
                 />
                 <MyButton
+                    navigation={navigation}
                     content='Buy Now'
                     width={width - 140}
                     height={44}
                     backgroundColor='#FF2C7A'
+                    url='Order'
                 />
             </View>
         </View>

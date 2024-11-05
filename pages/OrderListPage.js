@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
 
 })
-const OrderListPage = () => {
+const OrderListPage = ({ navigation }) => {
     const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
@@ -31,13 +31,14 @@ const OrderListPage = () => {
                 isMiddle
                 content='Order'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <ScrollView>
                 <View style={styles.proRel}>
                     <Tab />
                 </View>
                 <View style={styles.proRel}>
-                    <OrderList />
+                    <OrderList navigation={navigation} />
                 </View>
 
             </ScrollView>

@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
 
 })
-const OrderDetails = () => {
+const OrderDetails = ({ navigation }) => {
     const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
@@ -41,6 +41,7 @@ const OrderDetails = () => {
                 isMiddle
                 content='Order Details'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <ScrollView>
                 <View style={styles.proRel}>
@@ -52,7 +53,7 @@ const OrderDetails = () => {
                     <OrderTimeLine />
                 </View>
                 <View style={styles.proRel}>
-                    <SelectedProducts />
+                    <SelectedProducts navigation={navigation} />
                 </View>
                 <View style={styles.proRel}>
                     <OrderSummary

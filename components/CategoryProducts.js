@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 const styles = StyleSheet.create({
     productsCon: {
@@ -75,46 +75,27 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 })
-const CategoryProducts = () => {
+const CategoryProducts = ({ content = "", navigation = null, url = "" }) => {
     return (
         <View style={styles.productsCon}>
             <View style={styles.catTop}>
-                <Text style={styles.proTitle}>Categories</Text>
+                <Text style={styles.proTitle}>{content}</Text>
                 <View style={styles.viewAll}>
                     <Text style={styles.viewAllText}>View All</Text>
                 </View>
             </View>
             <View style={styles.products}>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                </View>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                </View>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                </View>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                </View>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                </View>
+                {[1, 2, 3, 4, 5, 5, 6].map((_, index) => (
+                    <TouchableOpacity onPress={() => navigation.navigate(url)}>
+                        <View style={styles.product}>
+                            <View style={styles.proCon}>
+                                <Image source={pro} style={styles.proImg} />
+                            </View>
+                            <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
+                        </View>
+                    </TouchableOpacity>
+                ))}
+
             </View>
         </View>
     )

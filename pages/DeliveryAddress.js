@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         backgroundColor: "#FAFAFA",
-        height: '100%'
+        height: '100%',
+        // paddingBottom: 100
     },
     proRel: {
         marginTop: 8,
@@ -22,44 +23,27 @@ const styles = StyleSheet.create({
         bottom: 5,
     }
 })
-const DeliveryAddress = () => {
+const DeliveryAddress = ({ navigation }) => {
     return (<>
         <View style={styles.container}>
             <SecondaryHeader
                 isMiddle
                 content='Delivery Address'
                 isRightIcon={false}
+                navigation={navigation}
             />
-            <ScrollView>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-                <View style={styles.proRel}>
-                    <AddressOrder />
-                </View>
-
+            <ScrollView style={{ marginBottom: 40 }}>
+                {[1, 2, 3, 4, 5, 6].map((_, indx) => (
+                    <View style={styles.proRel} key={indx}>
+                        <AddressOrder navigation={navigation} />
+                    </View>
+                ))}
             </ScrollView>
             <View style={styles.add}>
                 <FullWidthButton
                     content='Add Address'
+                    navigation={navigation}
+                    url='AddAddress'
                 />
             </View>
         </View>

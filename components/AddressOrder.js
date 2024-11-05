@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 import MyButton from './MyButton'
 import PrimaText from './PrimaText'
 import pen from "../assets/icons/pen.png"
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         height: 30
     }
 })
-const AddressOrder = ({ isOrder = false }) => {
+const AddressOrder = ({ isOrder = false, navigation = null }) => {
     return (
         <View style={styles.container}>
             {isOrder && <View style={styles.order}>
@@ -75,7 +75,9 @@ const AddressOrder = ({ isOrder = false }) => {
                         marginTop={3}
                     />
                 </View>
-                <Image source={pen} style={styles.img} />
+                <TouchableOpacity onPress={() => navigation.navigate("EditAddress")}>
+                    <Image source={pen} style={styles.img} />
+                </TouchableOpacity>
             </View>
         </View>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import logo from '../assets/images/logoMobile.png'
 import search from '../assets/icons/search.png'
 import notification from '../assets/icons/notification.png'
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
         right: 0
     }
 })
-const Header = () => {
+const Header = ({ navigation = null }) => {
 
     return (
         <View style={styles.header}>
-            <View>
+            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                 <Image source={logo} style={styles.logo} />
-            </View>
+            </TouchableOpacity>
             <View style={styles.headerIcon}>
                 <Image source={search} style={styles.headerImg} />
                 <View style={styles.notification}>

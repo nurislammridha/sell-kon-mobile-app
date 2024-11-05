@@ -36,13 +36,14 @@ const styles = StyleSheet.create({
         marginTop: 12
     }
 })
-const UserInfo = () => {
+const UserInfo = ({ navigation }) => {
     return (<>
         <View style={styles.container}>
             <SecondaryHeader
                 isMiddle
                 content='User Info'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <ScrollView style={styles.scroll}>
                 <PrimaText

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import PrimaText from '../components/PrimaText'
 import PrimaInput from '../components/PrimaInput'
 import Header from '../components/Header'
@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 })
-const SignInPage = () => {
+const SignInPage = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <ScrollView>
                 <View style={styles.inputCon}>
                     <PrimaText
@@ -95,12 +95,14 @@ const SignInPage = () => {
                             imgWidth={14}
                         />
                     </View>
-                    <PrimaText
-                        marginTop={32}
-                        content='Already have an account? Sign in'
-                        fontSize={20}
-                        fontWeight='bold'
-                    />
+                    <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+                        <PrimaText
+                            marginTop={32}
+                            content='Already have an account? Sign in'
+                            fontSize={20}
+                            fontWeight='medium'
+                        />
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>

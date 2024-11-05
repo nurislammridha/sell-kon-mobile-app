@@ -55,47 +55,26 @@ const styles = StyleSheet.create({
         color: "#F54C54"
     },
 })
-const HomeProducts = ({ title }) => {
+const HomeProducts = ({ title, navigation, route }) => {
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>{title}</Text>
             <View style={styles.products}>
-                <TouchableOpacity
-                // onPress={() => navigation.navigate("Details")}
-                >
-                    <View style={styles.product}>
-                        <View style={styles.proCon}>
-                            <Image source={pro} style={styles.proImg} />
+                {[1, 2, 3, 4, 5].map((_, indx) => (
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("Details")}
+                        key={indx}
+                    >
+                        <View style={styles.product}>
+                            <View style={styles.proCon}>
+                                <Image source={pro} style={styles.proImg} />
+                            </View>
+                            <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
+                            <Text style={styles.del}>&#2547; 45,00,000</Text>
+                            <Text style={styles.price}>&#2547; 45,00,000</Text>
                         </View>
-                        <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                        <Text style={styles.del}>&#2547; 45,00,000</Text>
-                        <Text style={styles.price}>&#2547; 45,00,000</Text>
-                    </View>
-                </TouchableOpacity>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
-                <View style={styles.product}>
-                    <View style={styles.proCon}>
-                        <Image source={pro} style={styles.proImg} />
-                    </View>
-                    <Text style={styles.proName}>Hynduai sontana 2020 car</Text>
-                    <Text style={styles.del}>&#2547; 45,00,000</Text>
-                    <Text style={styles.price}>&#2547; 45,00,000</Text>
-                </View>
+                    </TouchableOpacity>
+                ))}
             </View>
         </View>
     )

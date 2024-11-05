@@ -30,13 +30,14 @@ const styles = StyleSheet.create({
         bottom: 5,
     }
 })
-const EditAddress = () => {
+const EditAddress = ({ navigation }) => {
     return (<>
         <View style={styles.container}>
             <SecondaryHeader
                 isMiddle
                 content='Edit Delivery Address'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <ScrollView style={styles.scroll}>
                 <PrimaText

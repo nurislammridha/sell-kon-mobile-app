@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#000',
@@ -15,11 +15,15 @@ const styles = StyleSheet.create({
         fontSize: 16
     }
 })
-const FullWidthButton = ({ content = "Please Order", marginTop = 0 }) => {
+const FullWidthButton = ({ content = "Please Order", marginTop = 0, navigation = null, url = "" }) => {
     return (
-        <View style={[styles.container, { marginTop }]}>
-            <Text style={styles.txt}>{content}</Text>
-        </View>
+        <TouchableOpacity
+            onPress={() => navigation.navigate(url)}
+        >
+            <View style={[styles.container, { marginTop }]}>
+                <Text style={styles.txt}>{content}</Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 

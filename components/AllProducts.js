@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 import PrimaText from './PrimaText'
 const styles = StyleSheet.create({
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         height: 100
     },
 })
-const AllProducts = () => {
+const AllProducts = ({ navigation = null }) => {
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>All Product</Text>
@@ -98,15 +98,17 @@ const AllProducts = () => {
                         <Text style={styles.price}>&#2547; 45,00,000</Text>
                     </View>
                 ))}
+                <TouchableOpacity onPress={() => navigation.navigate("AllProducts")}>
 
-                <View style={[styles.allProduct, styles.all]}>
-                    <PrimaText
-                        content='VIEW ALL'
-                        color='#888'
-                        fontWeight='medium'
-                        fontSize={22}
-                    />
-                </View>
+                    <View style={[styles.allProduct, styles.all]}>
+                        <PrimaText
+                            content='VIEW ALL'
+                            color='#888'
+                            fontWeight='medium'
+                            fontSize={22}
+                        />
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
     )

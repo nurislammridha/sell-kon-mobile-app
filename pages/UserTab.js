@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, Image, ScrollView, StyleSheet, View } from 'react-native'
+import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import AddressOrder from '../components/AddressOrder'
 import FullWidthButton from '../components/FullWidthButton'
@@ -71,13 +71,14 @@ const styles = StyleSheet.create({
         marginRight: 10
     }
 })
-const UserTab = () => {
+const UserTab = ({ navigation }) => {
     return (<>
         <View style={styles.container}>
             <SecondaryHeader
                 isMiddle
                 content='User'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <View style={styles.body}>
                 <View style={styles.userCon}>
@@ -85,33 +86,39 @@ const UserTab = () => {
                     <Image source={pen} style={styles.pen} />
                 </View>
                 <View style={styles.list}>
-                    <View style={styles.item}>
-                        <Image source={user} style={styles.imgItm} />
-                        <PrimaText
-                            content='User Info'
-                            color='#130F26'
-                            fontWeight='medium'
-                            fontSize={20}
-                        />
-                    </View>
-                    <View style={styles.item}>
-                        <Image source={order} style={styles.imgItm} />
-                        <PrimaText
-                            content='Order'
-                            color='#130F26'
-                            fontWeight='medium'
-                            fontSize={20}
-                        />
-                    </View>
-                    <View style={styles.item}>
-                        <Image source={address} style={styles.imgItm} />
-                        <PrimaText
-                            content='Address'
-                            color='#130F26'
-                            fontWeight='medium'
-                            fontSize={20}
-                        />
-                    </View>
+                    <TouchableOpacity onPress={() => navigation.navigate("UserInfo")}>
+                        <View style={styles.item}>
+                            <Image source={user} style={styles.imgItm} />
+                            <PrimaText
+                                content='User Info'
+                                color='#130F26'
+                                fontWeight='medium'
+                                fontSize={20}
+                            />
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("OrderList")}>
+                        <View style={styles.item}>
+                            <Image source={order} style={styles.imgItm} />
+                            <PrimaText
+                                content='Order'
+                                color='#130F26'
+                                fontWeight='medium'
+                                fontSize={20}
+                            />
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("DeliveryAddress")}>
+                        <View style={styles.item}>
+                            <Image source={address} style={styles.imgItm} />
+                            <PrimaText
+                                content='Address'
+                                color='#130F26'
+                                fontWeight='medium'
+                                fontSize={20}
+                            />
+                        </View>
+                    </TouchableOpacity>
                     <View style={styles.item}>
                         <Image source={wish} style={styles.imgItm} />
                         <PrimaText
@@ -123,14 +130,14 @@ const UserTab = () => {
                     </View>
                 </View>
             </View>
-            <View style={styles.foot}>
+            <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.foot}>
                 <Image source={logout} style={styles.img} />
                 <PrimaText
                     content='Logout'
                     fontSize={20}
                     color='#130F26'
                 />
-            </View>
+            </TouchableOpacity>
         </View>
 
     </>)

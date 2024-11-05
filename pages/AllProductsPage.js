@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
 })
-const AllProductsPage = () => {
+const AllProductsPage = ({ navigation }) => {
     const { width } = Dimensions.get('screen')
     return (<>
         <View style={styles.container}>
@@ -33,6 +33,7 @@ const AllProductsPage = () => {
                 icon={filter}
                 isMiddle
                 content='Showing 250products'
+                navigation={navigation}
             />
             <ScrollView>
                 <View style={styles.proRel}>

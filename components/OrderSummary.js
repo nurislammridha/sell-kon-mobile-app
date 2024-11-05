@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import PrimaText from './PrimaText'
 import PrimaInput from './PrimaInput'
 import MyButton from './MyButton'
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     }
 })
-const OrderSummary = ({ isPromo = false, isOrderBtn = true }) => {
+const OrderSummary = ({ isPromo = false, isOrderBtn = true, navigation = null, url = "" }) => {
     return (
         <View style={styles.container}>
             <PrimaText
@@ -87,15 +87,19 @@ const OrderSummary = ({ isPromo = false, isOrderBtn = true }) => {
                 content="*Order Delivery Policy for this order can be found here"
                 color='#707070'
             />
-            {isOrderBtn && <MyButton
-                width={"100%"}
-                height={45}
-                content={"Please Order"}
-                backgroundColor='#000'
-                color='#FFF'
-                fontSize={16}
-                marginTop={18}
-            />}
+            {isOrderBtn &&
+                <MyButton
+                    width={"100%"}
+                    height={45}
+                    content={"Please Order"}
+                    backgroundColor='#000'
+                    color='#FFF'
+                    fontSize={16}
+                    marginTop={18}
+                    navigation={navigation}
+                    url={url}
+                />
+            }
 
         </View>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 import checkIcon from '../assets/icons/selected.png'
 import PlusMinus from './PlusMinus'
@@ -84,30 +84,35 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
 })
-const SelectProducts = () => {
+const SelectProducts = ({ navigation }) => {
     return (
         <View style={styles.container}>
             {[1, 2, 3, 3].map(({ item, index }) => (
-                <View style={styles.item} key={item}>
-                    <View style={styles.imgCon}>
-                        <Image source={checkIcon} style={styles.checkImg} />
-                        <Image source={pro} style={styles.proImg} />
+                <TouchableOpacity
+                    key={index}
+                    onPress={() => navigation.navigate("Details")}
+                >
+                    <View style={styles.item} >
+                        <View style={styles.imgCon}>
+                            <Image source={checkIcon} style={styles.checkImg} />
+                            <Image source={pro} style={styles.proImg} />
+                        </View>
+                        <View style={styles.content}>
+                            <View>
+                                <Text style={styles.txt}>
+                                    Hundai sonata Sedan
+                                </Text>
+                            </View>
+                            <View style={{ ...styles.mt8, ...styles.df }}>
+                                <Text style={styles.number}>&#2547; 23,000X1</Text>
+                            </View>
+                            <View style={{ ...styles.mt2, ...styles.df }}>
+                                <Text style={styles.price}>&#2547; 23,000X1</Text>
+                                <PlusMinus />
+                            </View>
+                        </View>
                     </View>
-                    <View style={styles.content}>
-                        <View>
-                            <Text style={styles.txt}>
-                                Hundai sonata Sedan
-                            </Text>
-                        </View>
-                        <View style={{ ...styles.mt8, ...styles.df }}>
-                            <Text style={styles.number}>&#2547; 23,000X1</Text>
-                        </View>
-                        <View style={{ ...styles.mt2, ...styles.df }}>
-                            <Text style={styles.price}>&#2547; 23,000X1</Text>
-                            <PlusMinus />
-                        </View>
-                    </View>
-                </View>
+                </TouchableOpacity>
             ))}
         </View>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 // import EStyleSheet from 'react-native-extended-stylesheet';
 const styles = StyleSheet.create({
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
 })
-const SelectedProducts = () => {
+const SelectedProducts = ({ navigation = null }) => {
     return (
         <View style={styles.container}>
             <View style={{ ...styles.mb8, ...styles.df }}>
@@ -85,26 +85,28 @@ const SelectedProducts = () => {
                 <Text style={styles.var}>Variation</Text>
             </View>
             {[1, 2, 3, 3].map(({ item, index }) => (
-                <View style={styles.df16} key={item}>
-                    <View style={styles.imgCon}>
-                        <Image source={pro} style={styles.proImg} />
+                <TouchableOpacity key={index} onPress={() => navigation.navigate("Details")}>
+                    <View style={styles.df16}>
+                        <View style={styles.imgCon}>
+                            <Image source={pro} style={styles.proImg} />
+                        </View>
+                        <View style={styles.content}>
+                            <View>
+                                <Text style={styles.txt}>
+                                    Hundai sonata Sedan
+                                </Text>
+                            </View>
+                            <View style={{ ...styles.mt8, ...styles.df }}>
+                                <Text style={styles.number}>&#2547; 23,000X1</Text>
+                                <Text style={styles.size}>Size: 0</Text>
+                            </View>
+                            <View style={{ ...styles.mt2, ...styles.df }}>
+                                <Text style={styles.price}>&#2547; 23,000X1</Text>
+                                <Text style={styles.size}>Color: Blue</Text>
+                            </View>
+                        </View>
                     </View>
-                    <View style={styles.content}>
-                        <View>
-                            <Text style={styles.txt}>
-                                Hundai sonata Sedan
-                            </Text>
-                        </View>
-                        <View style={{ ...styles.mt8, ...styles.df }}>
-                            <Text style={styles.number}>&#2547; 23,000X1</Text>
-                            <Text style={styles.size}>Size: 0</Text>
-                        </View>
-                        <View style={{ ...styles.mt2, ...styles.df }}>
-                            <Text style={styles.price}>&#2547; 23,000X1</Text>
-                            <Text style={styles.size}>Color: Blue</Text>
-                        </View>
-                    </View>
-                </View>
+                </TouchableOpacity>
             ))}
         </View>
     )

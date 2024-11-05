@@ -32,17 +32,18 @@ const styles = StyleSheet.create({
         borderBottomColor: "#F5F5F5"
     }
 })
-const CheckoutPage = () => {
+const CheckoutPage = ({ navigation }) => {
     const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
             <SecondaryHeader
                 isMiddle
                 content='5 Products'
+                navigation={navigation}
             />
             <ScrollView>
                 <View style={styles.proRel}>
-                    <SelectProducts />
+                    <SelectProducts navigation={navigation} />
                 </View>
                 <View style={styles.itemCon}>
                     <View style={styles.item}>
@@ -90,6 +91,8 @@ const CheckoutPage = () => {
                     <View style={{ marginTop: 23 }}>
                         <FullWidthButton
                             content="Checkout"
+                            navigation={navigation}
+                            url='Order'
                         />
                     </View>
                 </View>

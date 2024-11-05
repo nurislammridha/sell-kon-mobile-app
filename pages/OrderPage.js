@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     },
 
 })
-const OrderPage = () => {
+const OrderPage = ({ navigation }) => {
     const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
@@ -29,6 +29,7 @@ const OrderPage = () => {
                 isMiddle
                 content='Checkout'
                 isRightIcon={false}
+                navigation={navigation}
             />
             <ScrollView>
                 <View style={styles.proRel}>
@@ -40,6 +41,8 @@ const OrderPage = () => {
                 <View style={styles.proRel}>
                     <OrderSummary
                         isPromo={true}
+                        navigation={navigation}
+                        url='Payment'
                     />
                 </View>
 
