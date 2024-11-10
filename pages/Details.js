@@ -10,6 +10,7 @@ import Product from '../components/Product'
 import cart from '../assets/icons/cartDetails.png'
 import IconButton from '../components/IconButton'
 import MyButton from '../components/MyButton'
+import SoldBy from '../components/SoldBy'
 const styles = StyleSheet.create({
     container: {
         // paddingTop: 16,
@@ -68,6 +69,16 @@ const Details = ({ navigation, route }) => {
                     />
                 </View>
                 <DetailsBody />
+                <View style={styles.proDeatils}>
+                    <SoldBy navigation={navigation} />
+                </View>
+                <View style={styles.proDeatils}>
+                    <PrimaText
+                        fontSize={18}
+                        fontWeight='bold'
+                        content='Descriptions'
+                    />
+                </View>
                 <View style={styles.proDeatils}>
                     <PrimaText
                         fontSize={18}
