@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         height: 35
     },
     txt: {
-        color: '#333333',
+        color: '#878787',
+        // color: '#333333',
         fontSize: 12
     },
     del: {

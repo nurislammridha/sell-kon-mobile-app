@@ -8,7 +8,8 @@ const SlideItem = ({ item, width, height, isDescriptionPage }) => {
             <Image
                 source={item.img}
                 resizeMethod='contain'
-                style={isDescriptionPage ? { ...styles.desImg, height } : { ...styles.img, height }}
+                // style={isDescriptionPage ? { ...styles.desImg, height } : { ...styles.img, height }}
+                style={{ ...styles.img, height }}
             />
         </View>
     )

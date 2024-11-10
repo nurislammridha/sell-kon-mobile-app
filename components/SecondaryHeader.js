@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         height: 20
     }
 })
-const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Products", isRightIcon = true, navigation = null }) => {
+const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Products", isRightIcon = true, navigation = null, rightFunc = null }) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity
@@ -36,7 +36,7 @@ const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Pro
                     content={content}
                 />
             </View>}
-            {isRightIcon ? <Image source={icon} style={styles.img} /> : <View></View>}
+            {isRightIcon ? <TouchableOpacity onPress={rightFunc}><Image source={icon} style={styles.img} /></TouchableOpacity> : <View></View>}
         </View>
     )
 }

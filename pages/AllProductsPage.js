@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import filter from '../assets/icons/filter.png'
@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
         paddingRight: 16,
         marginTop: 8,
         backgroundColor: "#FFF",
-
     },
     products: {
         display: "flex",
@@ -23,9 +22,10 @@ const styles = StyleSheet.create({
         marginTop: 14,
         flexWrap: 'wrap',
         justifyContent: 'space-between'
-    },
+    }
 })
 const AllProductsPage = ({ navigation }) => {
+    const [isShow, setShow] = useState(false)
     const { width } = Dimensions.get('screen')
     return (<>
         <View style={styles.container}>
@@ -34,21 +34,20 @@ const AllProductsPage = ({ navigation }) => {
                 isMiddle
                 content='Showing 250products'
                 navigation={navigation}
+                rightFunc={() => setShow(true)}
             />
             <ScrollView>
                 <View style={styles.proRel}>
-
                     <View style={styles.products}>
                         {[1, 2, 3, 4, 4, 5, 4].map((_, indx) => (
-                            <Product marginTop={16} width={(width / 2) - 30} />
+                            <Product key={indx} marginTop={16} width={(width / 2) - 30} navigation={navigation} />
                         ))}
                     </View>
                 </View>
-
             </ScrollView>
-
         </View>
-        <Filter />
+        {isShow && <Filter setShow={() => setShow(!isShow)} />}
+
     </>)
 }
 

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 const { width } = Dimensions.get("screen")
 const Pagination = ({ data, scrollX, index, marginTop, isDescriptionPage }) => {
     return (
-        <View style={{ ...styles.container, marginTop }}>
+        <View style={{ ...styles.container, marginTop, paddingBottom: 5 }}>
             {data.map((_, idx) => {
                 const inputRange = [(idx - 1) * width, idx * width, (idx + 1) * width]
                 const dotWidth = scrollX.interpolate({
@@ -37,9 +37,9 @@ const Pagination = ({ data, scrollX, index, marginTop, isDescriptionPage }) => {
                 return <Animated.View
                     key={idx.toString()}
                     style={[styles.dot, { width: dotWidth, opacity },
-                    isDescriptionPage && { backgroundColor: "#D9D9D9" },
+                    // isDescriptionPage && { backgroundColor: "#D9D9D9" },
                     idx === index && styles.dotActive, ,
-                    idx === index && isDescriptionPage && { backgroundColor: "#000" }
+                        // idx === index && isDescriptionPage && { backgroundColor: "#000" }
                     ]}
                 />
             })}

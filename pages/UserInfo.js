@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
     }
 })
 const UserInfo = ({ navigation }) => {
+    const day = [
+        { label: "Day", value: "" },
+        { label: "01", value: "as" }
+    ]
     return (<>
         <View style={styles.container}>
             <SecondaryHeader
@@ -98,7 +102,7 @@ const UserInfo = ({ navigation }) => {
                     marginTop={24}
                 />
                 <View style={styles.bth}>
-                    <PrimaSelect width={125} />
+                    <PrimaSelect width={125} items={day} />
                     <PrimaSelect width={125} />
                     <PrimaSelect width={125} />
                 </View>

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         paddingBottom: 12,
         paddingLeft: 22,
         paddingRight: 22,
-        backgroundColor: "#FFF",
+        backgroundColor: "#FFFFFF",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between"
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     },
     catText: {
         marginTop: 5,
-        fontSize: 13
+        fontSize: 13,
+        color: "#878787"
     }
 
 })

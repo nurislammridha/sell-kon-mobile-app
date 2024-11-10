@@ -7,7 +7,7 @@ import pro from '../assets/images/pro3.jpg'
 import DetailsBody from '../components/DetailsBody'
 import PrimaText from '../components/PrimaText'
 import Product from '../components/Product'
-import cart from '../assets/icons/cart_icon_select.png'
+import cart from '../assets/icons/cartDetails.png'
 import IconButton from '../components/IconButton'
 import MyButton from '../components/MyButton'
 const styles = StyleSheet.create({
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         overflow: "scroll",
         marginTop: 14,
+        marginBottom: 150,
         flexWrap: 'wrap',
         justifyContent: 'space-between'
     },
@@ -59,10 +60,11 @@ const Details = ({ navigation, route }) => {
             <ScrollView>
                 <View style={styles.slider}>
                     <Slider
-                        paginationTop={0}
+                        paginationTop={-30}
                         data={[{ img: pro }, { img: pro }, { img: pro }, { img: pro }]}
                         isDescriptionPage
-                        height={254}
+                        // height={254}
+                        height={(width) - 30}
                     />
                 </View>
                 <DetailsBody />
@@ -81,7 +83,13 @@ const Details = ({ navigation, route }) => {
                     />
                     <View style={styles.products}>
                         {[1, 2, 3, 4, 4, 5, 4].map((_, indx) => (
-                            <Product marginTop={16} width={(width / 2) - 30} />
+                            <Product
+                                marginTop={16}
+                                width={(width / 2) - 30}
+                                height={"auto"}
+                                imgWidth={"100%"}
+                                imgHeight={(width / 2) - 30}
+                                navigation={navigation} />
                         ))}
                     </View>
                 </View>
@@ -92,7 +100,7 @@ const Details = ({ navigation, route }) => {
                     backgroundColor='#000'
                     icon={cart}
                     width={88}
-                    height={44}
+                    height={54}
                     imgWidth={24}
                     imgHeight={24}
                 />
@@ -100,9 +108,11 @@ const Details = ({ navigation, route }) => {
                     navigation={navigation}
                     content='Buy Now'
                     width={width - 140}
-                    height={44}
-                    backgroundColor='#FF2C7A'
+                    height={54}
+                    backgroundColor='#ff9e28'
                     url='Order'
+                    color='#FFF'
+                    fontSize={20}
                 />
             </View>
         </View>

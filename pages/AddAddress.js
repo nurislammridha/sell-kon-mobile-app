@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
         paddingLeft: 16,
         paddingRight: 16,
-        paddingBottom: 300,
-        marginBottom: 70
+        // paddingBottom: 300,
+        // marginBottom: 70
     },
     add: {
         display: 'flex',
@@ -109,12 +109,19 @@ const AddAddress = ({ navigation }) => {
                     placeholder='enter phone number'
                     width={"100%"}
                 />
+                <FullWidthButton
+                    content='Save'
+                    marginTop={55}
+                    marginBottom={100}
+                    height={56}
+                    fontSize={20}
+                />
             </ScrollView>
-            <View style={styles.add}>
+            {/* <View style={styles.add}>
                 <FullWidthButton
                     content='Save'
                 />
-            </View>
+            </View> */}
         </View>
 
     </>)

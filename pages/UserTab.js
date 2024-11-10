@@ -12,7 +12,7 @@ import wish from '../assets/icons/wishg.png'
 import user from '../assets/icons/user.png'
 import order from '../assets/icons/order.png'
 import logout from '../assets/icons/logout.png'
-import userIcn from '../assets/icons/userIcon2.png'
+import userIcn from '../assets/icons/userIcon.png'
 import pen from '../assets/icons/pen.png'
 const styles = StyleSheet.create({
     container: {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 import rightIcon from "../assets/icons/right.png"
-import bKash from "../assets/icons/bKash.png"
+import bKashIcn from "../assets/icons/cod.png"
 import PrimaText from './PrimaText'
 const styles = StyleSheet.create({
     container: {
@@ -44,7 +44,7 @@ const PaymentCard = ({ isLineTwo = true, navigation = null, url = "" }) => {
                 >
                     <View style={styles.item}>
                         <View style={styles.left}>
-                            <Image source={bKash} style={styles.imgM} />
+                            <Image source={bKashIcn} style={styles.imgM} />
                             <View>
                                 <PrimaText
                                     fontSize={11}

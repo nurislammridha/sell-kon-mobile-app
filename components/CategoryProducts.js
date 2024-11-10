@@ -21,16 +21,19 @@ const styles = StyleSheet.create({
         overflow: "scroll",
     },
     proImg: {
-        width: 65,
-        height: 65
+        width: "100%",
+        // height: 43
+        height: 61
     },
     product: {
-        width: 110,
-        height: 178,
-        marginRight: 14,
+        width: 77,
+        // height: 99,
+        height: "auto",
+        marginRight: 16,
         borderRadius: 5,
         padding: 5,
         borderColor: "#FAFAFA",
+        // borderColor: "#F00",
         borderWidth: 1
     },
     proCon: {
@@ -39,21 +42,11 @@ const styles = StyleSheet.create({
     },
     proName: {
         marginTop: 10,
-        minHeight: 45,
-        fontSize: 12,
-        fontWeight: '500',
+        height: 34,
+        fontSize: 10,
+        // backgroundColor: 'red'
     },
-    del: {
-        marginTop: 7,
-        fontSize: 8,
-        color: "#878787",
-        textDecorationLine: "line-through"
-    },
-    price: {
-        marginTop: 5,
-        fontSize: 12,
-        color: "#F54C54"
-    },
+
     catTop: {
         display: 'flex',
         flexDirection: 'row',

@@ -2,7 +2,7 @@ import React from 'react'
 import filterIcn from '../assets/icons/filter.png'
 import select from '../assets/icons/sselected.png'
 import unselect from '../assets/icons/sselect.png'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 import PrimaText from './PrimaText'
 const styles = StyleSheet.create({
     container: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 70,
         right: 0,
-        backgroundColor: "#FFF"
+        backgroundColor: "#FFFFFF"
     },
     top: {
         display: "flex",
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         marginRight: 10
     }
 })
-const Filter = () => {
+const Filter = ({ setShow = null }) => {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
@@ -51,11 +51,13 @@ const Filter = () => {
                         fontWeight='medium'
                     />
                 </View>
-                <PrimaText
-                    content='Close'
-                    fontSize={16}
-                    fontWeight='medium'
-                />
+                <TouchableOpacity onPress={setShow}>
+                    <PrimaText
+                        content='Close'
+                        fontSize={16}
+                        fontWeight='medium'
+                    />
+                </TouchableOpacity>
             </View>
             <PrimaText
                 content='Categories'

@@ -7,7 +7,7 @@ import userLogo from '../assets/icons/userIcon.png'
 const styles = StyleSheet.create({
     footerCon: {
         marginTop: 14,
-        backgroundColor: "#FFF",
+        backgroundColor: "#FFFFFF",
         height: 76,
         display: 'flex',
         flexDirection: 'row',
@@ -25,11 +25,12 @@ const styles = StyleSheet.create({
         width: 40,
         height: 50,
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: "center"
     },
     footImg: {
-        height: 32,
-        width: 32
+        height: 28,
+        width: 28
     },
     footText: {
         fontSize: 10

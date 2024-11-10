@@ -6,7 +6,7 @@ import MyButton from './MyButton'
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#FFF'
+    backgroundColor: '#FFFFFF'
   },
   price: {
     display: "flex",
@@ -89,6 +89,8 @@ const DetailsBody = () => {
           ))}
         </View>
       </View>
+      <PrimaText fontSize={14} marginTop={14} content='Have any question? Please contact us.' />
+      <PrimaText fontSize={14} content='01784528799' />
     </View>
   )
 }

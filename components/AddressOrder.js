@@ -5,7 +5,7 @@ import PrimaText from './PrimaText'
 import pen from "../assets/icons/pen.png"
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#FFF",
+        backgroundColor: "#FFFFFF",
         padding: 16,
         width: "100%"
     },
