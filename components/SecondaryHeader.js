@@ -8,16 +8,16 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
         paddingLeft: 16,
         paddingRight: 16,
-        paddingTop: 16,
-        paddingBottom: 16,
+        paddingTop: 8,
+        paddingBottom: 8,
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
         width: "100%"
     },
     img: {
-        width: 20,
-        height: 20
+        width: 28,
+        height: 28
     }
 })
 const SecondaryHeader = ({ icon = deleteIcon, isMiddle = false, content = "5 Products", isRightIcon = true, navigation = null, rightFunc = null }) => {

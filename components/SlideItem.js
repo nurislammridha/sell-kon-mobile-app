@@ -9,7 +9,7 @@ const SlideItem = ({ item, width, height, isDescriptionPage }) => {
                 source={item.img}
                 resizeMethod='contain'
                 // style={isDescriptionPage ? { ...styles.desImg, height } : { ...styles.img, height }}
-                style={{ ...styles.img, height }}
+                style={isDescriptionPage ? { width: "100%", height } : { ...styles.img, height }}
             />
         </View>
     )
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        padding: 16,
+        // padding: 16,
         backgroundColor: "#FFF"
     },
     img: {

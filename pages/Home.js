@@ -36,8 +36,8 @@ const Home = ({ navigation, route }) => {
                 <Category />
                 {/* product section */}
                 <HomeProducts title={"Sellkon Mall"} navigation={navigation} route={route} />
-                <HomeProducts title={"Trending Product"} />
-                <HomeProducts title={"Popular Product"} />
+                <HomeProducts title={"Trending Product"} navigation={navigation} route={route} />
+                <HomeProducts title={"Popular Product"} navigation={navigation} route={route} />
                 {/* category product section */}
                 <CategoryProducts content="Our Shops" navigation={navigation} url={"Shop"} />
                 {/* category product section */}

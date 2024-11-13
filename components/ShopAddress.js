@@ -50,20 +50,20 @@ const ShopAddress = () => {
                 <View>
                     <PrimaText
                         content='Hyndai sonata sedan'
-                        fontSize={13}
+                        fontSize={16}
                         fontWeight="medium"
                         color='#333'
                         marginTop={38}
                     />
                     <PrimaText
                         content='Delivery in 1 to 5 days'
-                        fontSize={11}
+                        fontSize={12}
                         color='#878787'
                         marginTop={2}
                     />
                     <PrimaText
                         content='Mirpur Dhaka'
-                        fontSize={11}
+                        fontSize={12}
                         color='#878787'
                         marginTop={2}
                     />

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     marginTop: 20
   },
   colorsCon: {
@@ -38,12 +38,12 @@ const DetailsBody = () => {
         content='Brand: Yamaha'
         marginTop={10}
       />
-      <PrimaText
+      {/* <PrimaText
         fontSize={14}
         fontWeight='medium'
         content='Sold By: Yamaha Official'
         marginTop={10}
-      />
+      /> */}
       <View style={styles.price}>
         <View>
           <PrimaText
@@ -57,7 +57,7 @@ const DetailsBody = () => {
             fontWeight='bold'
             color='#F54C54'
             content='&#2547; 4500000'
-            marginTop={10}
+            marginTop={0}
           />
         </View>
         <PlusMinus

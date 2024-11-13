@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 import checkIcon from '../assets/icons/selected.png'
 import PlusMinus from './PlusMinus'
@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     proImg: {
         width: 78,
         height: 78,
-        marginLeft: 25
+        marginLeft: 15,
+        marginRight: 15
     },
     checkImg: {
         width: 28,
@@ -30,9 +31,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 24
     },
-    content: {
-        width: 240,
-    },
+    // content: {
+    //     width: "auto",
+    // },
     txt: {
         color: "#333",
         fontSize: 14,
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     },
 })
 const SelectProducts = ({ navigation }) => {
+    const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
             {[1, 2, 3, 3].map(({ item, index }) => (
@@ -97,10 +99,10 @@ const SelectProducts = ({ navigation }) => {
                             <Image source={checkIcon} style={styles.checkImg} />
                             <Image source={pro} style={styles.proImg} />
                         </View>
-                        <View style={styles.content}>
+                        <View style={{ width: (width - 170) }}>
                             <View>
                                 <Text style={styles.txt}>
-                                    Hundai sonata Sedan
+                                    Hundai sonata Sedan retr rtert ertert
                                 </Text>
                             </View>
                             <View style={{ ...styles.mt8, ...styles.df }}>

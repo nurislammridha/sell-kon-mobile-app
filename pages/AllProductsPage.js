@@ -40,7 +40,15 @@ const AllProductsPage = ({ navigation }) => {
                 <View style={styles.proRel}>
                     <View style={styles.products}>
                         {[1, 2, 3, 4, 4, 5, 4].map((_, indx) => (
-                            <Product key={indx} marginTop={16} width={(width / 2) - 30} navigation={navigation} />
+                            <Product
+                                key={indx}
+                                marginTop={16}
+                                width={(width / 2) - 23}
+                                height={"auto"}
+                                imgWidth={(width / 2) - 23}
+                                imgHeight={(width / 2) - 23}
+                                navigation={navigation}
+                            />
                         ))}
                     </View>
                 </View>

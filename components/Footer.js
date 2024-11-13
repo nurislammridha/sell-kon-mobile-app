@@ -1,7 +1,8 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import cartIcon from '../assets/icons/cartFooter.png'
-import homeIcon from '../assets/icons/home11.png'
+// import homeIcon from '../assets/icons/home11.png'
+import homeIcon from '../assets/icons/home.png'
 import campaignIcon from '../assets/icons/campaign11.png'
 import userLogo from '../assets/icons/userIcon.png'
 const styles = StyleSheet.create({
@@ -29,11 +30,12 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     footImg: {
-        height: 28,
-        width: 28
+        height: 24,
+        width: 24
     },
     footText: {
-        fontSize: 10
+        fontSize: 10,
+        color: "#333"
     }
 })
 const Footer = ({ navigation }) => {
@@ -58,7 +60,7 @@ const Footer = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate("UserTab")}>
                 <View style={styles.footItem}>
                     <Image source={userLogo} style={styles.footImg} />
-                    <Text style={styles.footText}>Profile</Text>
+                    <Text style={styles.footText}>PROFILE</Text>
                 </View>
             </TouchableOpacity>
         </View>

@@ -3,6 +3,7 @@ import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import pro from '../assets/images/pro3.jpg'
 import PrimaText from './PrimaText'
 import Product from './Product'
+import MyButton from './MyButton'
 const styles = StyleSheet.create({
     productsCon: {
         marginTop: 10,
@@ -14,7 +15,8 @@ const styles = StyleSheet.create({
     proTitle: {
         marginTop: 14,
         fontSize: 16,
-        fontWeight: "800"
+        fontWeight: "medium",
+        color: "#333333",
     },
     products: {
         marginTop: 14,
@@ -88,14 +90,14 @@ const AllProducts = ({ navigation = null }) => {
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>All Product</Text>
             <View style={styles.allProducts}>
-                {[1, 2, 3, 4, 5, 6, 7].map((_, index) => (<>
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (<>
                     <Product
                         key={index}
-                        width={(width / 2) - 30}
+                        width={(width / 2) - 15}
                         height={"auto"}
                         marginTop={10}
                         imgWidth={"100%"}
-                        imgHeight={(width / 2) - 30}
+                        imgHeight={(width / 2) - 15}
                         navigation={navigation}
                     />
                     {/* <View style={styles.allProduct}>
@@ -107,18 +109,17 @@ const AllProducts = ({ navigation = null }) => {
                         <Text style={styles.price}>&#2547; 45,00,000</Text>
                     </View> */}
                 </>))}
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("AllProducts")}
-                    style={[styles.allProduct, { width: (width / 2) - 30 }, styles.all]}
-                >
-                    <PrimaText
-                        content='VIEW ALL'
-                        color='#888'
-                        fontWeight='medium'
-                        fontSize={22}
-                    />
-                </TouchableOpacity>
+
             </View>
+            <MyButton
+                content='VIEW ALL'
+                width={"100%"}
+                borderWidth={1}
+                borderColor='#888'
+                marginTop={40}
+                navigation={navigation}
+                url='AllProducts'
+            />
         </View>
     )
 }

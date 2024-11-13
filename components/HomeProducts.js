@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     proTitle: {
         marginTop: 14,
         fontSize: 16,
-        fontWeight: "800"
+        fontWeight: "medium",
+        color: "#333333",
     },
     products: {
         marginTop: 14,

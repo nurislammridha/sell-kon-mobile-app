@@ -61,11 +61,11 @@ const Details = ({ navigation, route }) => {
             <ScrollView>
                 <View style={styles.slider}>
                     <Slider
-                        paginationTop={-30}
+                        paginationTop={-20}
                         data={[{ img: pro }, { img: pro }, { img: pro }, { img: pro }]}
                         isDescriptionPage
                         // height={254}
-                        height={(width) - 30}
+                        height={width}
                     />
                 </View>
                 <DetailsBody />
@@ -96,10 +96,10 @@ const Details = ({ navigation, route }) => {
                         {[1, 2, 3, 4, 4, 5, 4].map((_, indx) => (
                             <Product
                                 marginTop={16}
-                                width={(width / 2) - 30}
+                                width={(width / 2) - 23}
                                 height={"auto"}
                                 imgWidth={"100%"}
-                                imgHeight={(width / 2) - 30}
+                                imgHeight={(width / 2) - 23}
                                 navigation={navigation} />
                         ))}
                     </View>
@@ -111,19 +111,19 @@ const Details = ({ navigation, route }) => {
                     backgroundColor='#000'
                     icon={cart}
                     width={88}
-                    height={54}
+                    height={45}
                     imgWidth={24}
                     imgHeight={24}
                 />
                 <MyButton
                     navigation={navigation}
                     content='Buy Now'
-                    width={width - 140}
-                    height={54}
+                    width={width - 130}
+                    height={45}
                     backgroundColor='#ff9e28'
                     url='Order'
                     color='#FFF'
-                    fontSize={20}
+                    fontSize={16}
                 />
             </View>
         </View>

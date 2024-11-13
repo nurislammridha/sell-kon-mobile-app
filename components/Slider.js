@@ -9,7 +9,7 @@ import Pagination from './Pagination'
 const { width: wid } = Dimensions.get('screen')
 const info = [{ img: sl1 }, { img: sl2 }, { img: sl3 }, { img: sl4 }]
 const Slider = ({ data = info, paginationTop = -34, width = wid, height = 115, isDescriptionPage = false }) => {
-    //I follow this video
+    //I follow this video -32
     //https://www.youtube.com/watch?v=2TgArwz6je8
     const [index, setIndex] = useState(0)
 

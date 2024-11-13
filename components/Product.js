@@ -26,18 +26,18 @@ const styles = StyleSheet.create({
     },
     txtCon: {
         marginTop: 8,
-        height: 35,
+        height: 49,
         paddingLeft: 5,
         paddingRight: 5,
     },
     txt: {
-        color: '#878787',
-        // color: '#333333',
-        fontSize: 12
+        color: '#333333',
+        fontSize: 12,
+        lineHeight: 17
     },
     del: {
-        marginTop: 7,
-        fontSize: 11,
+        marginTop: 14,
+        fontSize: 13,
         color: "#878787",
         lineHeight: 15,
         textDecorationLine: 'line-through',
@@ -45,9 +45,10 @@ const styles = StyleSheet.create({
         paddingRight: 5,
     },
     price: {
-        fontSize: 12,
+        marginTop: 0,
+        fontSize: 14,
         color: "#F54C54",
-        lineHeight: 15,
+        lineHeight: 17,
         paddingLeft: 5,
         paddingRight: 5,
         paddingBottom: 5,
@@ -61,7 +62,7 @@ const Product = ({ marginTop = 0, width = 163, height = 249, marginRight = 0, im
                     <Image source={pro} style={[styles.proImg, { width: imgWidth, height: imgHeight, }]} />
                 </View>
                 <View style={styles.txtCon}>
-                    <Text>
+                    <Text style={styles.txt}>
                         Lorem10 ispsum set amet csjkdf 100
                         Lorem10 ispsum set amet csjkdf 100
                     </Text>

@@ -2,15 +2,18 @@ import React from 'react'
 import { Animated, Dimensions, StyleSheet, View } from 'react-native'
 const styles = StyleSheet.create({
     container: {
+        // position: 'absolute',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         gap: 4,
+        // backgroundColor: 'yellow',
+        paddingBottom: 10
     },
     dot: {
-        width: 12,
-        height: 12,
-        borderRadius: 6,
+        width: 8,
+        height: 8,
+        borderRadius: 4,
         backgroundColor: "#FFF"
 
     },
@@ -21,7 +24,7 @@ const styles = StyleSheet.create({
 const { width } = Dimensions.get("screen")
 const Pagination = ({ data, scrollX, index, marginTop, isDescriptionPage }) => {
     return (
-        <View style={{ ...styles.container, marginTop, paddingBottom: 5 }}>
+        <View style={{ ...styles.container, marginTop }}>
             {data.map((_, idx) => {
                 const inputRange = [(idx - 1) * width, idx * width, (idx + 1) * width]
                 const dotWidth = scrollX.interpolate({

@@ -5,38 +5,43 @@ import cart from '../assets/icons/shop_cart.png'
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#FFF",
+        // backgroundColor: "#F00",
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "#FAFAFA",
         // width: 163,
-        height: 249,
-        padding: 12
+        // height: 249,
+        // padding: 12
     },
     proImgCon: {
         display: 'flex',
         alignItems: 'center'
     },
-    proImg: {
-        width: 130,
-        height: 130,
-    },
+
     txtCon: {
         marginTop: 8,
-        height: 35
+        height: 48,
+        paddingLeft: 5,
+        paddingRight: 5,
     },
     txt: {
-        color: '#878787',
-        // color: '#333333',
-        fontSize: 12
+        color: '#333333',
+        fontSize: 12,
+        lineHeight: 17
     },
     del: {
-        fontSize: 10,
+        paddingLeft: 5,
+        paddingRight: 5,
+        fontSize: 13,
         color: "#878787",
         lineHeight: 18,
         textDecorationLine: 'line-through'
     },
     price: {
-        fontSize: 12,
+        paddingLeft: 5,
+        paddingRight: 5,
+        paddingBottom: 10,
+        fontSize: 14,
         color: "#F54C54",
         lineHeight: 18
     },
@@ -51,14 +56,14 @@ const styles = StyleSheet.create({
         height: 33
     }
 })
-const ProductCart = ({ marginTop = 0, width = 163 }) => {
+const ProductCart = ({ marginTop = 0, width = 163, height = "auto" }) => {
     return (
-        <View style={[styles.container, { marginTop, width }]}>
+        <View style={[styles.container, { marginTop, width, height }]}>
             <View style={styles.proImgCon}>
-                <Image source={pro} style={styles.proImg} />
+                <Image source={pro} style={{ width, height: width, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
             </View>
             <View style={styles.txtCon}>
-                <Text>
+                <Text style={styles.txt}>
                     Lorem10 ispsum set amet csjkdf 100
                     Lorem10 ispsum set amet csjkdf 100
                 </Text>

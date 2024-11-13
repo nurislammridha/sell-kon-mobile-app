@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     proTitle: {
         marginTop: 14,
         fontSize: 16,
-        fontWeight: "800"
+        fontWeight: "medium",
+        color: "#333333",
     },
     products: {
         marginTop: 14,
@@ -23,13 +24,13 @@ const styles = StyleSheet.create({
     proImg: {
         width: "100%",
         // height: 43
-        height: 61
+        height: 90
     },
     product: {
-        width: 77,
+        width: 92,
         // height: 99,
         height: "auto",
-        marginRight: 16,
+        // marginRight: 16,
         borderRadius: 5,
         padding: 5,
         borderColor: "#FAFAFA",
@@ -42,8 +43,9 @@ const styles = StyleSheet.create({
     },
     proName: {
         marginTop: 10,
-        height: 34,
+        height: 28,
         fontSize: 10,
+        color: "#333333",
         // backgroundColor: 'red'
     },
 

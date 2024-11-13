@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 // import EStyleSheet from 'react-native-extended-stylesheet';
 const styles = StyleSheet.create({
@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
         height: 76,
         marginRight: 18
     },
-    content: {
-        width: 300,
-    },
+    // content: {
+    //     width: 300,
+    // },
     txt: {
         color: "#333",
         fontSize: 14,
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     },
 })
 const SelectedProducts = ({ navigation = null }) => {
+    const { width } = Dimensions.get('screen')
     return (
         <View style={styles.container}>
             <View style={{ ...styles.mb8, ...styles.df }}>
@@ -90,7 +91,7 @@ const SelectedProducts = ({ navigation = null }) => {
                         <View style={styles.imgCon}>
                             <Image source={pro} style={styles.proImg} />
                         </View>
-                        <View style={styles.content}>
+                        <View style={{ width: (width - 128) }}>
                             <View>
                                 <Text style={styles.txt}>
                                     Hundai sonata Sedan
