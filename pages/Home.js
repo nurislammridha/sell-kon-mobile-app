@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Image,
     SafeAreaView,
@@ -24,7 +24,15 @@ import Footer from '../components/Footer';
 import HomeProducts from '../components/HomeProducts';
 import CategoryProducts from '../components/CategoryProducts';
 import AllProducts from '../components/AllProducts';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData } from '../actions/exampleActions';
 const Home = ({ navigation, route }) => {
+    const dispatch = useDispatch();
+    const { data, loading, error } = useSelector((state) => state.example);
+    console.log('data', data)
+    useEffect(() => {
+        dispatch(fetchData());
+    }, [dispatch]);
     return (
         <View style={styles.container}>
             {/* header section */}

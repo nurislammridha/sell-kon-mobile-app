@@ -25,6 +25,8 @@ import UserTab from './pages/UserTab';
 import ShopPage from './pages/ShopPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 const Stack = createStackNavigator();
 {/* <Pages /> */ }
 {/* <AllComponents /> */ }
@@ -44,80 +46,81 @@ const Stack = createStackNavigator();
 {/* <UserTab /> */ }
 {/* <ShopPage /> */ }
 const App = () => {
-
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          headerMode="none"
-        >
-          <Stack.Screen
-            name="Home"
-            component={Pages}
-          />
-          <Stack.Screen
-            name="Details"
-            component={Details}
-          />
-          <Stack.Screen
-            name="AllProducts"
-            component={AllProductsPage}
-          />
-          <Stack.Screen
-            name="CheckOut"
-            component={CheckoutPage}
-          />
-          <Stack.Screen
-            name="Order"
-            component={OrderPage}
-          />
-          <Stack.Screen
-            name="Payment"
-            component={PaymentPage}
-          />
-          <Stack.Screen
-            name="OrderList"
-            component={OrderListPage}
-          />
-          <Stack.Screen
-            name="OrderDetails"
-            component={OrderDetails}
-          />
-          <Stack.Screen
-            name="SignUp"
-            component={SignUpPage}
-          />
-          <Stack.Screen
-            name="SignIn"
-            component={SignInPage}
-          />
-          <Stack.Screen
-            name="DeliveryAddress"
-            component={DeliveryAddress}
-          />
-          <Stack.Screen
-            name="AddAddress"
-            component={AddAddress}
-          />
-          <Stack.Screen
-            name="EditAddress"
-            component={EditAddress}
-          />
-          <Stack.Screen
-            name="UserInfo"
-            component={UserInfo}
-          />
-          <Stack.Screen
-            name="UserTab"
-            component={UserTab}
-          />
-          <Stack.Screen
-            name="Shop"
-            component={ShopPage}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            headerMode="none"
+          >
+            <Stack.Screen
+              name="Home"
+              component={Pages}
+            />
+            <Stack.Screen
+              name="Details"
+              component={Details}
+            />
+            <Stack.Screen
+              name="AllProducts"
+              component={AllProductsPage}
+            />
+            <Stack.Screen
+              name="CheckOut"
+              component={CheckoutPage}
+            />
+            <Stack.Screen
+              name="Order"
+              component={OrderPage}
+            />
+            <Stack.Screen
+              name="Payment"
+              component={PaymentPage}
+            />
+            <Stack.Screen
+              name="OrderList"
+              component={OrderListPage}
+            />
+            <Stack.Screen
+              name="OrderDetails"
+              component={OrderDetails}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUpPage}
+            />
+            <Stack.Screen
+              name="SignIn"
+              component={SignInPage}
+            />
+            <Stack.Screen
+              name="DeliveryAddress"
+              component={DeliveryAddress}
+            />
+            <Stack.Screen
+              name="AddAddress"
+              component={AddAddress}
+            />
+            <Stack.Screen
+              name="EditAddress"
+              component={EditAddress}
+            />
+            <Stack.Screen
+              name="UserInfo"
+              component={UserInfo}
+            />
+            <Stack.Screen
+              name="UserTab"
+              component={UserTab}
+            />
+            <Stack.Screen
+              name="Shop"
+              component={ShopPage}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 const styles = StyleSheet.create({
     productsCon: {
@@ -80,17 +80,18 @@ const CategoryProducts = ({ content = "", navigation = null, url = "" }) => {
                 </View>
             </View>
             <View style={styles.products}>
-                {[1, 2, 3, 4, 5, 5, 6].map((_, index) => (
-                    <TouchableOpacity onPress={() => navigation.navigate(url)}>
-                        <View style={styles.product}>
-                            <View style={styles.proCon}>
-                                <Image source={pro} style={styles.proImg} />
+                <ScrollView horizontal={true}>
+                    {[1, 2, 3, 4, 5, 5, 6].map((_, index) => (
+                        <TouchableOpacity key={index} onPress={() => navigation.navigate(url)}>
+                            <View style={styles.product}>
+                                <View style={styles.proCon}>
+                                    <Image source={pro} style={styles.proImg} />
+                                </View>
+                                <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
                             </View>
-                            <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                        </View>
-                    </TouchableOpacity>
-                ))}
-
+                        </TouchableOpacity>
+                    ))}
+                </ScrollView>
             </View>
         </View>
     )

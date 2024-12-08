@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 import Product from './Product'
 const styles = StyleSheet.create({
@@ -62,29 +62,19 @@ const HomeProducts = ({ title, navigation, route }) => {
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>{title}</Text>
             <View style={styles.products}>
-                {[1, 2, 3, 4, 5].map((_, indx) => (<View>
-                    {/* <TouchableOpacity
-                        onPress={() => navigation.navigate("Details")}
-                        key={indx}
-                    > */}
-                    {/* <View style={styles.product}>
-                            <View style={styles.proCon}>
-                                <Image source={pro} style={styles.proImg} />
-                            </View>
-                            <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
-                            <Text style={styles.del}>&#2547; 45,00,000</Text>
-                            <Text style={styles.price}>&#2547; 45,00,000</Text>
-                        </View> */}
-                    <Product
-                        width={110}
-                        height={"auto"}
-                        marginRight={14}
-                        imgWidth={"100%"}
-                        imgHeight={110}
-                        navigation={navigation}
-                    />
-                    {/* </TouchableOpacity> */}
-                </View>))}
+                <ScrollView
+                    horizontal={true}
+                >
+                    {[1, 2, 3, 4, 5].map((_, indx) => (
+                        <Product
+                            width={110}
+                            height={"auto"}
+                            marginRight={14}
+                            imgWidth={"100%"}
+                            imgHeight={110}
+                            navigation={navigation}
+                        />))}
+                </ScrollView>
             </View>
         </View>
     )
