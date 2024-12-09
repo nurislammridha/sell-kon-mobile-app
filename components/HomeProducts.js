@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
         color: "#F54C54"
     },
 })
-const HomeProducts = ({ title, navigation, route }) => {
+const HomeProducts = ({ title, navigation, route, arr = [], loading = false }) => {
+    console.log('arr', arr.length)
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>{title}</Text>
@@ -65,15 +66,31 @@ const HomeProducts = ({ title, navigation, route }) => {
                 <ScrollView
                     horizontal={true}
                 >
-                    {[1, 2, 3, 4, 5].map((_, indx) => (
-                        <Product
-                            width={110}
-                            height={"auto"}
-                            marginRight={14}
-                            imgWidth={"100%"}
-                            imgHeight={110}
-                            navigation={navigation}
-                        />))}
+                    {loading && arr.length > 0 ?
+                        [{ productName: "dfdsfdsfsdf", }].map((item, indx) => (
+                            <Product
+                                item={item}
+                                key={indx}
+                                width={110}
+                                height={"auto"}
+                                marginRight={14}
+                                imgWidth={"100%"}
+                                imgHeight={110}
+                                navigation={navigation}
+                            />)) :
+
+                        [1, 2, 3, 4, 5].map((_, indx) => (
+                            <Product
+                                key={indx}
+                                width={110}
+                                height={"auto"}
+                                marginRight={14}
+                                imgWidth={"100%"}
+                                imgHeight={110}
+                                navigation={navigation}
+                            />))
+
+                    }
                 </ScrollView>
             </View>
         </View>

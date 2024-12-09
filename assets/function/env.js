@@ -1,0 +1,1 @@
+export const rootUrl = "https://www.topketch.com/v1/"

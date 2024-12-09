@@ -25,14 +25,17 @@ import HomeProducts from '../components/HomeProducts';
 import CategoryProducts from '../components/CategoryProducts';
 import AllProducts from '../components/AllProducts';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchData } from '../actions/exampleActions';
+import { GetHomePageData } from '../redux/_redux/CommonAction';
 const Home = ({ navigation, route }) => {
     const dispatch = useDispatch();
-    const { data, loading, error } = useSelector((state) => state.example);
-    console.log('data', data)
+    const isHomePageLoading = useSelector((state) => state.homeInfo.isHomePageLoading);
+    const homeDataList = useSelector((state) => state.homeInfo.homeData);
+    const { categoriesList, data, popularProducts,
+        sellKonMallProducts, shopsList, trendingProducts, subCategoriesList, campaign, eidCampaign } = homeDataList || {}
+    // console.log('homeDataList', homeDataList)
     useEffect(() => {
-        dispatch(fetchData());
-    }, [dispatch]);
+        dispatch(GetHomePageData());
+    }, [])
     return (
         <View style={styles.container}>
             {/* header section */}
@@ -43,9 +46,15 @@ const Home = ({ navigation, route }) => {
                 {/* category section */}
                 <Category />
                 {/* product section */}
-                <HomeProducts title={"Sellkon Mall"} navigation={navigation} route={route} />
-                <HomeProducts title={"Trending Product"} navigation={navigation} route={route} />
-                <HomeProducts title={"Popular Product"} navigation={navigation} route={route} />
+                <HomeProducts
+                    title={"Sellkon Mall"}
+                    navigation={navigation}
+                    route={route}
+                    arr={sellKonMallProducts}
+                    loading={isHomePageLoading}
+                />
+                {/* <HomeProducts title={"Trending Product"} navigation={navigation} route={route} /> */}
+                {/* <HomeProducts title={"Popular Product"} navigation={navigation} route={route} /> */}
                 {/* category product section */}
                 <CategoryProducts content="Our Shops" navigation={navigation} url={"Shop"} />
                 {/* category product section */}

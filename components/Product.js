@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
     }
 })
-const Product = ({ marginTop = 0, width = 163, height = 249, marginRight = 0, imgWidth = 130, imgHeight = 130, navigation = null }) => {
+const Product = ({ marginTop = 0, width = 163, height = 249, marginRight = 0, imgWidth = 130, imgHeight = 130, navigation = null, item }) => {
+    console.log('item', item)
     return (
         <TouchableOpacity onPress={() => navigation.navigate("Details")}>
             <View style={[styles.container, { marginTop, width, height, marginRight }]}>
@@ -63,12 +64,11 @@ const Product = ({ marginTop = 0, width = 163, height = 249, marginRight = 0, im
                 </View>
                 <View style={styles.txtCon}>
                     <Text style={styles.txt}>
-                        Lorem10 ispsum set amet csjkdf 100
-                        Lorem10 ispsum set amet csjkdf 100
+                        {item?.productName}
                     </Text>
                 </View>
-                <Text style={styles.del}>&#2547; 23,0000</Text>
-                <Text style={styles.price}>&#2547; 32,30,000</Text>
+                {/* <Text style={styles.del}>&#2547; {item?.mrp}</Text> */}
+                {/* <Text style={styles.price}>&#2547;{item?.isCampaign ? item?.campaignDiscount : item?.regularDiscount}</Text> */}
             </View>
         </TouchableOpacity>
     )
