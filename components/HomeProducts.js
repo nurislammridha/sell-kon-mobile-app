@@ -66,21 +66,10 @@ const HomeProducts = ({ title, navigation, route, arr = [], loading = false }) =
                 <ScrollView
                     horizontal={true}
                 >
-                    {loading && arr.length > 0 ?
-                        [{ productName: "dfdsfdsfsdf", }].map((item, indx) => (
+                    {!loading && arr.length > 0 &&
+                        arr.map((item, indx) => (
                             <Product
                                 item={item}
-                                key={indx}
-                                width={110}
-                                height={"auto"}
-                                marginRight={14}
-                                imgWidth={"100%"}
-                                imgHeight={110}
-                                navigation={navigation}
-                            />)) :
-
-                        [1, 2, 3, 4, 5].map((_, indx) => (
-                            <Product
                                 key={indx}
                                 width={110}
                                 height={"auto"}

@@ -53,15 +53,49 @@ const Home = ({ navigation, route }) => {
                     arr={sellKonMallProducts}
                     loading={isHomePageLoading}
                 />
-                {/* <HomeProducts title={"Trending Product"} navigation={navigation} route={route} /> */}
-                {/* <HomeProducts title={"Popular Product"} navigation={navigation} route={route} /> */}
+                <HomeProducts
+                    title={"Trending Product"}
+                    navigation={navigation}
+                    route={route}
+                    arr={trendingProducts}
+                    loading={isHomePageLoading}
+                />
+                <HomeProducts
+                    title={"Popular Product"}
+                    navigation={navigation}
+                    route={route}
+                    arr={popularProducts}
+                    loading={isHomePageLoading}
+                />
+                {/* Shop product section */}
+                {!isHomePageLoading &&
+                    <CategoryProducts
+                        content="Our Shops"
+                        navigation={navigation}
+                        url={"Shop"}
+                        arr={shopsList}
+                    />
+                }
+
                 {/* category product section */}
-                <CategoryProducts content="Our Shops" navigation={navigation} url={"Shop"} />
-                {/* category product section */}
-                <CategoryProducts content='Categories' navigation={navigation} url="Home" />
+                {!isHomePageLoading &&
+                    <CategoryProducts
+                        content='Categories'
+                        navigation={navigation}
+                        url="Home"
+                        arr={categoriesList}
+                        isCat={true}
+                    />
+                }
+
                 {/* All products section */}
                 <View style={styles.pb}>
-                    <AllProducts navigation={navigation} />
+                    {!isHomePageLoading &&
+                        <AllProducts
+                            navigation={navigation}
+                            arr={data}
+                        />
+                    }
                 </View>
             </ScrollView>
             {/* footer section */}

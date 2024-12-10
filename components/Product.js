@@ -55,20 +55,23 @@ const styles = StyleSheet.create({
     }
 })
 const Product = ({ marginTop = 0, width = 163, height = 249, marginRight = 0, imgWidth = 130, imgHeight = 130, navigation = null, item }) => {
-    console.log('item', item)
+    // console.log('item', item)
     return (
         <TouchableOpacity onPress={() => navigation.navigate("Details")}>
             <View style={[styles.container, { marginTop, width, height, marginRight }]}>
                 <View style={styles.proImgCon}>
-                    <Image source={pro} style={[styles.proImg, { width: imgWidth, height: imgHeight, }]} />
+                    <Image
+                        source={{ uri: item?.productIcon?.url }}
+                        style={[styles.proImg, { width: imgWidth, height: imgHeight, }]}
+                    />
                 </View>
                 <View style={styles.txtCon}>
                     <Text style={styles.txt}>
                         {item?.productName}
                     </Text>
                 </View>
-                {/* <Text style={styles.del}>&#2547; {item?.mrp}</Text> */}
-                {/* <Text style={styles.price}>&#2547;{item?.isCampaign ? item?.campaignDiscount : item?.regularDiscount}</Text> */}
+                <Text style={styles.del}>&#2547; {item?.mrp}</Text>
+                <Text style={styles.price}>&#2547;{item?.isCampaign ? item?.campaignDiscount : item?.regularDiscount}</Text>
             </View>
         </TouchableOpacity>
     )

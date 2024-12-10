@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 })
-const CategoryProducts = ({ content = "", navigation = null, url = "" }) => {
+const CategoryProducts = ({ content = "", navigation = null, url = "", arr = [], isCat = false }) => {
     return (
         <View style={styles.productsCon}>
             <View style={styles.catTop}>
@@ -81,13 +81,13 @@ const CategoryProducts = ({ content = "", navigation = null, url = "" }) => {
             </View>
             <View style={styles.products}>
                 <ScrollView horizontal={true}>
-                    {[1, 2, 3, 4, 5, 5, 6].map((_, index) => (
+                    {arr.length > 0 && arr.map((item, index) => (
                         <TouchableOpacity key={index} onPress={() => navigation.navigate(url)}>
                             <View style={styles.product}>
                                 <View style={styles.proCon}>
-                                    <Image source={pro} style={styles.proImg} />
+                                    <Image source={{ uri: isCat ? item?.categoryImg?.url : item?.shopLogo?.url }} style={styles.proImg} />
                                 </View>
-                                <Text style={styles.proName}>Hynduai sontana 2020 car rtret ertret rtret tret</Text>
+                                <Text style={styles.proName}>{isCat ? item?.categoryName : item?.shopName}</Text>
                             </View>
                         </TouchableOpacity>
                     ))}

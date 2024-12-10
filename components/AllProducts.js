@@ -83,16 +83,17 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 })
-const AllProducts = ({ navigation = null }) => {
+const AllProducts = ({ navigation = null, arr = [] }) => {
     const { width } = Dimensions.get('screen')
     // console.log('width', width)
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>All Product</Text>
             <View style={styles.allProducts}>
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (<>
+                {arr.length > 0 && arr.map((item, index) => (<>
                     <Product
                         key={index}
+                        item={item}
                         width={(width / 2) - 15}
                         height={"auto"}
                         marginTop={10}
