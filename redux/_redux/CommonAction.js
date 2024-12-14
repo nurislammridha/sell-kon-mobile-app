@@ -21,7 +21,7 @@ export const GetHomePageData = () => (dispatch) => {
 };
 //all filter products list
 export const GetAllProduct = () => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}product`;
+  const url = `${rootUrl}product`;
   dispatch({ type: Types.IS_PRODUCT_LOADING, payload: true });
   try {
     Axios.get(url).then((res) => {
@@ -36,7 +36,7 @@ export const GetAllProduct = () => (dispatch) => {
   }
 };
 export const GetFilterProduct = (data) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}product/filter`;
+  const url = `${rootUrl}product/filter`;
   dispatch({ type: Types.IS_PRODUCT_LOADING, payload: true });
   try {
     Axios.post(url, data).then((res) => {
@@ -51,9 +51,11 @@ export const GetFilterProduct = (data) => (dispatch) => {
   }
 };
 export const ProductDetailsById = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}product/${id}`;
+  const url = `${rootUrl}product/${id}`;
+  // console.log('url', url)
   try {
     Axios.get(url).then((res) => {
+      // console.log('res', res)
       if (res.data.status) {
         dispatch({ type: Types.PRODUCT_DETAILS, payload: res.data.result });
       }
@@ -90,7 +92,7 @@ export const sendEmailOtp = (data) => (dispatch) => {
   mailOrPhone.substring(0, 2) === "01" ? buyerPhone = mailOrPhone : buyerEmail = mailOrPhone
   const postData = { buyerName, password, buyerEmail, buyerPhone }
   localStorage.setItem("signUpData", JSON.stringify(postData))
-  const url = `${process.env.REACT_APP_API_URL}buyer/send-email-otp`;
+  const url = `${rootUrl}buyer/send-email-otp`;
   dispatch({ type: Types.IS_EMAIL_OTP_LOADING, payload: true })
   try {
     Axios.post(url, { email: buyerEmail }).then((res) => {
@@ -115,7 +117,7 @@ export const SignUpSubmit = (data, otp) => (dispatch) => {
     return 0
   }
   const postData = { ...data, otp }
-  const url = `${process.env.REACT_APP_API_URL}buyer`;
+  const url = `${rootUrl}buyer`;
   dispatch({ type: Types.IS_SIGNUP_LOADING, payload: true })
   try {
     Axios.post(url, postData).then((res) => {
@@ -164,7 +166,7 @@ export const LoginSubmit = (data, createPassword) => (dispatch) => {
   mailOrPhone.substring(0, 2) === "01" ? buyerPhone = mailOrPhone : buyerEmail = mailOrPhone
   const postData = { password, buyerEmail, buyerPhone, createPassword }
 
-  const url = `${process.env.REACT_APP_API_URL}buyer/login`;
+  const url = `${rootUrl}buyer/login`;
   dispatch({ type: Types.IS_LOGIN_LOADING, payload: true })
   try {
     Axios.post(url, postData).then((res) => {
@@ -201,7 +203,7 @@ export const PhoneSubmit = (phone) => (dispatch) => {
     return 0
   }
 
-  const url = `${process.env.REACT_APP_API_URL}buyer/check-buyer-phone`;
+  const url = `${rootUrl}buyer/check-buyer-phone`;
   dispatch({ type: Types.IS_PHONE_LOADING, payload: true })
   try {
     Axios.post(url, { phone }).then((res) => {
@@ -225,7 +227,7 @@ export const CheckBuyerSubmit = (buyerEmail) => (dispatch) => {
     //showToast("error", "Mail shouldn't be empty!")
     return 0
   }
-  const url = `${process.env.REACT_APP_API_URL}buyer/check-buyer`;
+  const url = `${rootUrl}buyer/check-buyer`;
   dispatch({ type: Types.IS_CHECK_BUYER_LOADING, payload: true })
   localStorage.setItem('buyerEmail', buyerEmail)
   try {
@@ -269,7 +271,7 @@ export const CreatePasswordSubmit = (data) => (dispatch) => {
   }
   const buyerEmail = localStorage.getItem('buyerEmail')
   localStorage.setItem("resetInfo", JSON.stringify({ password, buyerEmail }))
-  const url = `${process.env.REACT_APP_API_URL}buyer/forget-password-otp`;
+  const url = `${rootUrl}buyer/forget-password-otp`;
   dispatch({ type: Types.IS_CREATE_PASSWORD_LOADING, payload: true })
   try {
     Axios.post(url, { buyerEmail }).then((res) => {
@@ -298,7 +300,7 @@ export const SetPasswordSubmit = (resetInfo, otp) => (dispatch) => {
     //showToast("error", "Invalid Otp!")
     return 0
   }
-  const url = `${process.env.REACT_APP_API_URL}buyer/set-password`;
+  const url = `${rootUrl}buyer/set-password`;
   dispatch({ type: Types.IS_SET_PASSWORD_LOADING, payload: true })
   // const resetInfo = JSON.parse(localStorage.getItem('resetInfo'))
   const payload = { ...resetInfo, otp }
@@ -338,7 +340,7 @@ export const SocialLoginSubmit = (data) => (dispatch) => {
   const postData = { buyerName, buyerEmail, buyerPhone, googleId, buyerImgUrl, providerId, isNewUser }
   // console.log('postData', postData)
   // return 0
-  const url = `${process.env.REACT_APP_API_URL}buyer/social-login`;
+  const url = `${rootUrl}buyer/social-login`;
   dispatch({ type: Types.IS_LOGIN_LOADING, payload: true })
   try {
     Axios.post(url, postData).then((res) => {
@@ -368,7 +370,7 @@ export const SocialLoginSubmit = (data) => (dispatch) => {
 };
 
 export const GetCartListByBuyer = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}cart/buyer/${id}`;
+  const url = `${rootUrl}cart/buyer/${id}`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -391,7 +393,7 @@ export const AddToCart = (data) => (dispatch) => {
   const postData = {
     buyerId, buyerInfo: buyerId, productInfo: [{ productDetails: productId, productId, quantity, colorName, colorHexCode, sizeName, productImgUrl: fullImg, campaignId, campaignEndTime, campaignEndDate, campaignPrice }]
   }
-  const url = `${process.env.REACT_APP_API_URL}cart`;
+  const url = `${rootUrl}cart`;
   dispatch({ type: Types.IS_CART_LOADING, payload: true })
   try {
     Axios.post(url, postData).then((res) => {
@@ -413,7 +415,7 @@ export const FalseCartAdded = () => (dispatch) => {
 }
 export const CartProductQuantity = (number, productInfoId, cartId, buyerId) => (dispatch) => {
   const postData = { number, productInfoId, cartId }
-  const url = `${process.env.REACT_APP_API_URL}cart/quantity`;
+  const url = `${rootUrl}cart/quantity`;
   dispatch({ type: Types.IS_QUANTITY_LOADING, payload: true })
   try {
     Axios.post(url, postData).then((res) => {
@@ -473,7 +475,7 @@ export const SubmitBuyerAddress = (data) => (dispatch) => {
   }
 
   dispatch({ type: Types.IS_ADDRESS_LOADING, payload: true });
-  const url = `${process.env.REACT_APP_API_URL}buyer/delivery-address`;
+  const url = `${rootUrl}buyer/delivery-address`;
   const postData = {
     buyerId,
     addressInfo: { buyerName, buyerPhone, division, district, upazilla, nearestArea, union, postalCode, detailsAddress, isMetropolitan }
@@ -524,7 +526,7 @@ export const CreateUser = (data) => (dispatch) => {
   // }
 
   dispatch({ type: Types.IS_ADDRESS_LOADING, payload: true });
-  const url = `${process.env.REACT_APP_API_URL}buyer/create-user`;
+  const url = `${rootUrl}buyer/create-user`;
   const postData = {
     addressInfo: { buyerName, buyerPhone, division, district, upazilla, nearestArea, union, postalCode, detailsAddress, isMetropolitan }
   }
@@ -584,7 +586,7 @@ export const UpdateBuyerAddress = (data, addressId) => (dispatch) => {
   }
 
   dispatch({ type: Types.IS_UPDATE_ADDRESS_LOADING, payload: true });
-  const url = `${process.env.REACT_APP_API_URL}buyer/update-delivery-address`;
+  const url = `${rootUrl}buyer/update-delivery-address`;
   const postData = {
     buyerId,
     addressId,
@@ -638,7 +640,7 @@ export const DeleteFromCart = (productInfo) => (dispatch) => {
   const postData = { cartId, productsArrId }
   // console.log('postData', postData)
   // return 0
-  const url = `${process.env.REACT_APP_API_URL}cart/delete-many`;
+  const url = `${rootUrl}cart/delete-many`;
   try {
     Axios.post(url, postData).then((res) => {
       if (res.data.status) {
@@ -669,7 +671,7 @@ export const SubmitOrder = (list, address, isFromDetails = false) => (dispatch) 
   }
   // console.log('postdata', postData)
   // return 0
-  const url = `${process.env.REACT_APP_API_URL}order`;
+  const url = `${rootUrl}order`;
   dispatch({ type: Types.IS_ORDER_LOADING, payload: true })
   try {
     Axios.post(url, postData).then((res) => {
@@ -693,7 +695,7 @@ export const FalseOrderCreated = () => (dispatch) => {
 }
 export const GetBuyerDetailsByBuyerId = () => (dispatch) => {
   const buyerId = JSON.parse(localStorage.getItem("buyerData"))._id
-  const url = `${process.env.REACT_APP_API_URL}buyer/${buyerId}`;
+  const url = `${rootUrl}buyer/${buyerId}`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -739,7 +741,7 @@ export const submitUserInput = (input, x) => (dispatch) => {
     return 0
   }
   const buyerId = JSON.parse(localStorage.getItem("buyerData"))._id
-  const url = `${process.env.REACT_APP_API_URL}buyer/${buyerId}`;
+  const url = `${rootUrl}buyer/${buyerId}`;
   dispatch({ type: Types.IS_BUYER_UPDATE_LOADING, payload: true })
 
   try {
@@ -770,7 +772,7 @@ const UploadCloudinary = (img, x) => (dispatch) => {
     if (res.data) {
       //update img
       const buyerId = JSON.parse(localStorage.getItem("buyerData"))._id
-      const url = `${process.env.REACT_APP_API_URL}buyer/${buyerId}`;
+      const url = `${rootUrl}buyer/${buyerId}`;
       dispatch({ type: Types.IS_BUYER_UPDATE_LOADING, payload: true })
       const postData = {
         buyerImgUrl: {
@@ -799,7 +801,7 @@ const UploadCloudinary = (img, x) => (dispatch) => {
 }
 export const UserProfileUpdate = (img, publicId, x) => (dispatch) => {
   if (img.type === "image/jpeg" || img.type === "image/png") {
-    const urlRemove = `${process.env.REACT_APP_API_URL}helper/delete-cloudinary`;
+    const urlRemove = `${rootUrl}helper/delete-cloudinary`;
     // console.log('publicId', publicId)
     // return 0
     if (publicId) {
@@ -817,7 +819,7 @@ export const UserProfileUpdate = (img, publicId, x) => (dispatch) => {
 
 };
 export const GetCategories = () => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}category`;
+  const url = `${rootUrl}category`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -831,7 +833,7 @@ export const GetCategories = () => (dispatch) => {
   }
 }
 export const GetSellers = () => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}seller`;
+  const url = `${rootUrl}seller`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -845,7 +847,7 @@ export const GetSellers = () => (dispatch) => {
   }
 }
 export const GetSellerById = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}seller/${id}`;
+  const url = `${rootUrl}seller/${id}`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -859,7 +861,7 @@ export const GetSellerById = (id) => (dispatch) => {
   }
 }
 export const GetBrands = () => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}brand`;
+  const url = `${rootUrl}brand`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -874,7 +876,7 @@ export const GetBrands = () => (dispatch) => {
 }
 export const GetOrderByBuyer = () => (dispatch) => {
   const id = JSON.parse(localStorage.getItem("buyerData"))._id
-  const url = `${process.env.REACT_APP_API_URL}order/buyer/${id}`;
+  const url = `${rootUrl}order/buyer/${id}`;
   dispatch({ type: Types.IS_ORDER_LIST_LOADING, payload: true })
   try {
     Axios.get(url).then((res) => {
@@ -890,7 +892,7 @@ export const GetOrderByBuyer = () => (dispatch) => {
   }
 }
 export const GetOrderById = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}order/order-details/${id}`;
+  const url = `${rootUrl}order/order-details/${id}`;
   dispatch({ type: Types.IS_ORDER_DETAILS_LOADING, payload: true })
   try {
     Axios.get(url).then((res) => {

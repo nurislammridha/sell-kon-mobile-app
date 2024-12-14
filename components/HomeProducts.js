@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
 })
 const HomeProducts = ({ title, navigation, route, arr = [], loading = false }) => {
-    console.log('arr', arr.length)
+    // console.log('arr', arr.length)
     return (
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>{title}</Text>

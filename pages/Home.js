@@ -111,8 +111,6 @@ const styles = StyleSheet.create({
     pb: {
         paddingBottom: 210
     }
-
-
 });
 
 export default Home;

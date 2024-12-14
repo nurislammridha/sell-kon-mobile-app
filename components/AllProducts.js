@@ -90,18 +90,18 @@ const AllProducts = ({ navigation = null, arr = [] }) => {
         <View style={styles.productsCon}>
             <Text style={styles.proTitle}>All Product</Text>
             <View style={styles.allProducts}>
-                {arr.length > 0 && arr.map((item, index) => (<>
-                    <Product
-                        key={index}
-                        item={item}
-                        width={(width / 2) - 15}
-                        height={"auto"}
-                        marginTop={10}
-                        imgWidth={"100%"}
-                        imgHeight={(width / 2) - 15}
-                        navigation={navigation}
-                    />
-                    {/* <View style={styles.allProduct}>
+                {arr.length > 0 && arr.map((item, index) => (
+                    <View key={index}>
+                        <Product
+                            item={item}
+                            width={(width / 2) - 15}
+                            height={"auto"}
+                            marginTop={10}
+                            imgWidth={"100%"}
+                            imgHeight={(width / 2) - 15}
+                            navigation={navigation}
+                        />
+                        {/* <View style={styles.allProduct}>
                         <View style={styles.proCon}>
                             <Image source={pro} style={styles.allProImg} />
                         </View>
@@ -109,7 +109,7 @@ const AllProducts = ({ navigation = null, arr = [] }) => {
                         <Text style={styles.del}>&#2547; 45,00,000</Text>
                         <Text style={styles.price}>&#2547; 45,00,000</Text>
                     </View> */}
-                </>))}
+                    </View>))}
 
             </View>
             <MyButton

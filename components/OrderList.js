@@ -31,8 +31,11 @@ const styles = StyleSheet.create({
 const OrderList = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            {[1, 2, 3, 4, 4, 5, 6].map(() => (
-                <TouchableOpacity onPress={() => navigation.navigate("OrderDetails")}>
+            {[1, 2, 3, 4, 4, 5, 6].map((_, indx) => (
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("OrderDetails")}
+                    key={indx}
+                >
                     <View style={styles.item}>
                         <View style={styles.top}>
                             <PrimaText fontSize={16} fontWeight='medium' content='Order Id: GBO20392494' />

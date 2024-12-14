@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Pages from './pages/Home';
 // import AllComponents from './pages/AllComponents';
 import Details from './pages/Details';
@@ -27,25 +27,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { getData, storeData } from './assets/function/helperFunction';
 const Stack = createStackNavigator();
-{/* <Pages /> */ }
-{/* <AllComponents /> */ }
-{/* <Details /> */ }
-{/* <AllProductsPage /> */ }
-{/* <CheckoutPage /> */ }
-{/* <OrderPage /> */ }
-{/* <PaymentPage /> */ }
-{/* <OrderListPage /> */ }
-{/* <OrderDetails /> */ }
-{/* <SignUpPage /> */ }
-{/* <SignInPage /> */ }
-{/* <DeliveryAddress /> */ }
-{/* <AddAddress /> */ }
-{/* <EditAddress /> */ }
-{/* <UserInfo /> */ }
-{/* <UserTab /> */ }
-{/* <ShopPage /> */ }
+
 const App = () => {
+  const [isLogin, setIsLogin] = useState(false)
+  useEffect(() => {
+    getData('isLogin').then((res) => {
+      setIsLogin(res ? true : false)
+    })
+  }, [])
+  console.log('isLogin', isLogin)
   return (
     <>
       <Provider store={store}>

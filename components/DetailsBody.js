@@ -24,18 +24,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   }
 })
-const DetailsBody = () => {
+const DetailsBody = (info = {}) => {
+  const { data } = info || {}
+  const { productImgColor, mrp, regularDiscount, campaignDiscount, brandName, productName, isCampaign } = data || {}
+  console.log('data', data)
   return (
     <View style={styles.container}>
       <PrimaText
         fontSize={21}
         fontWeight='medium'
-        content='Yamaha YZF R!5 V3 indonesian'
+        content={productName || "Test"}
       />
       <PrimaText
         fontSize={14}
         fontWeight='medium'
-        content='Brand: Yamaha'
+        content={"Brand :" + brandName}
         marginTop={10}
       />
       {/* <PrimaText
@@ -49,14 +52,16 @@ const DetailsBody = () => {
           <PrimaText
             fontSize={16}
             color='#878787'
-            content='&#2547; 450000'
+            isTaka={true}
+            content={`${mrp}`}
             style={{ textDecorationLine: 'line-through' }}
           />
           <PrimaText
             fontSize={20}
             fontWeight='bold'
             color='#F54C54'
-            content='&#2547; 4500000'
+            isTaka
+            content={`${isCampaign ? campaignDiscount : regularDiscount}`}
             marginTop={0}
           />
         </View>
@@ -74,13 +79,13 @@ const DetailsBody = () => {
           color='#7D7D7D'
         />
         <View style={styles.colors}>
-          {["Black", "Red", "White"].map((item, index) => (
+          {productImgColor.map((item, index) => (
             <MyButton
               key={index}
               borderWidth={1}
               borderColor="#E8E8E8"
               color="#000"
-              content={item}
+              content={item?.colorName}
               width={80}
               height={32}
               marginRight={8}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import share from '../assets/icons/share_icon.png'
@@ -11,6 +11,8 @@ import cart from '../assets/icons/cartDetails.png'
 import IconButton from '../components/IconButton'
 import MyButton from '../components/MyButton'
 import SoldBy from '../components/SoldBy'
+import { useDispatch, useSelector } from 'react-redux'
+import { ProductDetailsById } from '../redux/_redux/CommonAction'
 const styles = StyleSheet.create({
     container: {
         // paddingTop: 16,
@@ -55,6 +57,14 @@ const styles = StyleSheet.create({
 })
 const Details = ({ navigation, route }) => {
     const { width } = Dimensions.get('screen')
+    const { id } = route.params;
+    const dispatch = useDispatch();
+    const productDetails = useSelector((state) => state.homeInfo.productDetails);
+    const { productImgColor } = productDetails || {}
+    // console.log('id', productImgColor)
+    useEffect(() => {
+        dispatch(ProductDetailsById(id));
+    }, [id])
     return (
         <View style={styles.container}>
             <SecondaryHeader icon={share} navigation={navigation} />
@@ -62,13 +72,13 @@ const Details = ({ navigation, route }) => {
                 <View style={styles.slider}>
                     <Slider
                         paginationTop={-20}
-                        data={[{ img: pro }, { img: pro }, { img: pro }, { img: pro }]}
+                        data={productImgColor || []}
                         isDescriptionPage
                         // height={254}
                         height={width}
                     />
                 </View>
-                <DetailsBody />
+                <DetailsBody data={productDetails || {}} />
                 <View style={styles.proDeatils}>
                     <SoldBy navigation={navigation} />
                 </View>
@@ -86,7 +96,7 @@ const Details = ({ navigation, route }) => {
                         content='Product Details'
                     />
                 </View>
-                <View style={styles.proRel}>
+                {/* <View style={styles.proRel}>
                     <PrimaText
                         fontSize={18}
                         fontWeight='bold'
@@ -103,7 +113,7 @@ const Details = ({ navigation, route }) => {
                                 navigation={navigation} />
                         ))}
                     </View>
-                </View>
+                </View> */}
 
             </ScrollView>
             <View style={styles.footer}>

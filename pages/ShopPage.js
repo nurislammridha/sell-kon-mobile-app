@@ -46,7 +46,7 @@ const ShopPage = ({ navigation }) => {
 
                     <View style={styles.products}>
                         {[1, 2, 3, 4, 4, 5, 4].map((_, indx) => (
-                            <ProductCart marginTop={16} width={(width / 2) - 23} />
+                            <ProductCart key={indx} marginTop={16} width={(width / 2) - 23} />
                         ))}
                     </View>
                 </View>

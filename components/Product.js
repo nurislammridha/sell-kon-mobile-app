@@ -4,15 +4,9 @@ import pro from '../assets/images/pro3.jpg'
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#FFFFFF",
-        // backgroundColor: "#F00",
         borderRadius: 10,
         borderWidth: 1,
-        // borderColor: "#FAFAFA",
         borderColor: "#FAFAFA",
-        // borderColor: "#F00",
-        // width: 163,
-
-        // padding: 10
     },
     proImgCon: {
         display: 'flex',
@@ -57,7 +51,7 @@ const styles = StyleSheet.create({
 const Product = ({ marginTop = 0, width = 163, height = 249, marginRight = 0, imgWidth = 130, imgHeight = 130, navigation = null, item }) => {
     // console.log('item', item)
     return (
-        <TouchableOpacity onPress={() => navigation.navigate("Details")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Details", { id: item?._id })}>
             <View style={[styles.container, { marginTop, width, height, marginRight }]}>
                 <View style={styles.proImgCon}>
                     <Image
