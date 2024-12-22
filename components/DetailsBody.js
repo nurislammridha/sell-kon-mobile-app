@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 const DetailsBody = (info = {}) => {
   const { data } = info || {}
   const { productImgColor, mrp, regularDiscount, campaignDiscount, brandName, productName, isCampaign } = data || {}
-  console.log('data', data)
+  // console.log('data', data)
   return (
     <View style={styles.container}>
       <PrimaText
@@ -79,7 +79,7 @@ const DetailsBody = (info = {}) => {
           color='#7D7D7D'
         />
         <View style={styles.colors}>
-          {productImgColor.map((item, index) => (
+          {productImgColor?.map((item, index) => (
             <MyButton
               key={index}
               borderWidth={1}

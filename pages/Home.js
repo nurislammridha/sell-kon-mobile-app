@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Image,
     SafeAreaView,
@@ -26,6 +26,7 @@ import CategoryProducts from '../components/CategoryProducts';
 import AllProducts from '../components/AllProducts';
 import { useSelector, useDispatch } from 'react-redux';
 import { GetHomePageData } from '../redux/_redux/CommonAction';
+import { getData, storeData } from '../assets/function/helperFunction';
 const Home = ({ navigation, route }) => {
     const dispatch = useDispatch();
     const isHomePageLoading = useSelector((state) => state.homeInfo.isHomePageLoading);
@@ -33,8 +34,14 @@ const Home = ({ navigation, route }) => {
     const { categoriesList, data, popularProducts,
         sellKonMallProducts, shopsList, trendingProducts, subCategoriesList, campaign, eidCampaign } = homeDataList || {}
     // console.log('homeDataList', homeDataList)
+    const [isLogin, setIsLogin] = useState(false)
+
     useEffect(() => {
         dispatch(GetHomePageData());
+        getData('isLogin').then((res) => {
+            console.log('res', res)
+            setIsLogin(res ? true : false)
+        })
     }, [])
     return (
         <View style={styles.container}>
@@ -99,7 +106,7 @@ const Home = ({ navigation, route }) => {
                 </View>
             </ScrollView>
             {/* footer section */}
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation} isLogin={isLogin} />
         </View>
     );
 }

@@ -29,15 +29,21 @@ const styles = StyleSheet.create({
         marginRight: 10
     }
 })
-const PrimaInput = ({ leftIcon = false, width = 265, height = 45, placeholder = "Enter", backgroundColor = "#FFF", marginTop = 0, type }) => {
+const PrimaInput = ({ leftIcon = false, width = 265, height = 45, placeholder = "Enter", backgroundColor = "#FFF", marginTop = 0, type = "text", onChange = null, value = "", isPassword = false }) => {
+    const handleChange = (e) => {
+        onChange(e)
+    }
     return (
         <View style={{ ...styles.container, width, height, backgroundColor, marginTop }}>
             {leftIcon && <Image source={search} style={styles.img} />}
             <TextInput
                 style={{ ...styles.input }}
-                value=''
+                value={value}
                 placeholder={placeholder}
                 keyboardType={type}
+                // textContentType={type}
+                secureTextEntry={isPassword}
+                onChangeText={newText => handleChange(newText)}
             />
         </View>
     )

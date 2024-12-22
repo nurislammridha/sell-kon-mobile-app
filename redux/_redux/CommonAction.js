@@ -2,6 +2,8 @@
 // import { //showToast } from "../../utils/ToastHelper";
 import { rootUrl } from "../../assets/function/env";
 import { getSubTotal } from "../../assets/function/globalFunction";
+import { storeData } from "../../assets/function/helperFunction";
+import { showToast } from "../../assets/utils/ToastHelper";
 import * as Types from "./Types";
 import Axios from "axios";
 
@@ -152,13 +154,13 @@ export const LoginSubmit = (data, createPassword) => (dispatch) => {
   const { mailOrPhone, password } = data
   // console.log('data', data)
   if (mailOrPhone.length === 0) {
-    //showToast("error", "Email shouldn't be empty!")
+    showToast("error", "Email shouldn't be empty!")
     return 0
   } else if (password.length === 0) {
-    //showToast("error", "Password shouldn't be empty!")
+    showToast("error", "Password shouldn't be empty!")
     return 0
   } else if (password.length < 6) {
-    //showToast("error", "Password length should be at least 6 character!")
+    showToast("error", "Password length should be at least 6 character!")
     return 0
   }
   let buyerEmail = ""
@@ -171,19 +173,19 @@ export const LoginSubmit = (data, createPassword) => (dispatch) => {
   try {
     Axios.post(url, postData).then((res) => {
       if (res.data.status) {
-        // console.log('res', res)
+        console.log('res', res)
         dispatch({ type: Types.IS_LOGIN_LOADING, payload: false });
         dispatch({ type: Types.LOGIN_CREATED, payload: true });
-        //showToast("success", res.data.message);
+        showToast("success", res.data.message);
         if (res.data.isLogin) {
-          localStorage.setItem("isLogin", true)
-          localStorage.setItem("buyerData", JSON.stringify(res.data.result))
-          localStorage.setItem("access_token", res.data.token)
+          storeData("isLogin", true)
+          storeData("buyerData", res.data.result)
+          storeData("access_token", res.data.token)
           dispatch(GetCartListByBuyer(res.data.result._id))
           dispatch({ type: Types.IS_LOGIN_COMPLETE, payload: true });
         } else {
-          localStorage.setItem("isLogin", false)
-          localStorage.setItem("buyerData", null)
+          storeData("isLogin", false)
+          storeData("buyerData", null)
         }
       }
     }).catch((err) => {

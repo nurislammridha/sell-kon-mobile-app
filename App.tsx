@@ -28,16 +28,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { getData, storeData } from './assets/function/helperFunction';
+import Toast from 'react-native-toast-message';
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(false)
-  useEffect(() => {
-    getData('isLogin').then((res) => {
-      setIsLogin(res ? true : false)
-    })
-  }, [])
-  console.log('isLogin', isLogin)
+
+  // console.log('isLogin', isLogin)
   return (
     <>
       <Provider store={store}>
@@ -113,6 +109,7 @@ const App = () => {
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
+      <Toast />
     </>
   );
 }

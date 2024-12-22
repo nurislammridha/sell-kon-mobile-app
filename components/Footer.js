@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
         color: "#333"
     }
 })
-const Footer = ({ navigation }) => {
+const Footer = ({ navigation, isLogin = false }) => {
+    console.log('isLogin', isLogin)
     return (
         <View style={styles.footerCon}>
             <View style={styles.footItem}>
@@ -57,7 +58,7 @@ const Footer = ({ navigation }) => {
                     <Text style={styles.footText}>CART</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("UserTab")}>
+            <TouchableOpacity onPress={() => navigation.navigate(isLogin ? "UserTab" : "SignIn")}>
                 <View style={styles.footItem}>
                     <Image source={userLogo} style={styles.footImg} />
                     <Text style={styles.footText}>PROFILE</Text>

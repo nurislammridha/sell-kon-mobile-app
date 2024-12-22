@@ -10,10 +10,11 @@ const styles = StyleSheet.create({
         borderRadius: 5
     }
 })
-const FullWidthButton = ({ content = "Please Order", marginTop = 0, marginBottom = 0, navigation = null, url = "", height = 45, fontSize = 16 }) => {
+const FullWidthButton = ({ content = "Please Order", marginTop = 0, marginBottom = 0, navigation = null, url = "", height = 45, fontSize = 16, onPress }) => {
     return (
         <TouchableOpacity
-            onPress={() => navigation.navigate(url)}
+            // onPress={() => navigation.navigate(url)}
+            onPress={onPress}
         >
             <View style={[styles.container, { marginTop, marginBottom, height }]}>
                 <Text style={{ color: '#FFFFFF', fontSize }}>{content}</Text>
