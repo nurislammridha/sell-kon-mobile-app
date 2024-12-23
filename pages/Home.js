@@ -39,10 +39,10 @@ const Home = ({ navigation, route }) => {
     useEffect(() => {
         dispatch(GetHomePageData());
         getData('isLogin').then((res) => {
-            console.log('res', res)
             setIsLogin(res ? true : false)
         })
     }, [])
+    console.log('isLogin', isLogin)
     return (
         <View style={styles.container}>
             {/* header section */}

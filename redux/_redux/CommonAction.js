@@ -173,7 +173,7 @@ export const LoginSubmit = (data, createPassword) => (dispatch) => {
   try {
     Axios.post(url, postData).then((res) => {
       if (res.data.status) {
-        console.log('res', res)
+        // console.log('res', res)
         dispatch({ type: Types.IS_LOGIN_LOADING, payload: false });
         dispatch({ type: Types.LOGIN_CREATED, payload: true });
         showToast("success", res.data.message);

@@ -76,7 +76,7 @@ const SignInPage = ({ navigation }) => {
             dispatch(FalseIsLoginComplete())
         }
     }, [isLoginComplete])
-    console.log('isLoginComplete', isLoginComplete)
+    // console.log('isLoginComplete', isLoginComplete)
     return (
         <View style={styles.container}>
             <Header navigation={navigation} />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import share from '../assets/icons/share_icon.png'
@@ -59,12 +59,29 @@ const Details = ({ navigation, route }) => {
     const { width } = Dimensions.get('screen')
     const { id } = route.params;
     const dispatch = useDispatch();
+    const [fullImg, setFullImg] = useState(null)
+    const [sizeName, setSizeName] = useState(null)
+    const [colorName, setColorName] = useState(null)
+    const [colorHexCode, setColorHexCode] = useState(null)
+    // console.log('fullImg', fullImg)
+    // console.log('data', availableQuantity)
+    const [quantity, setQuantity] = useState(1)
     const productDetails = useSelector((state) => state.homeInfo.productDetails);
+    const multiImg = productDetails?.productImgColor || []
     const { productImgColor } = productDetails || {}
     // console.log('id', productImgColor)
     useEffect(() => {
         dispatch(ProductDetailsById(id));
     }, [id])
+    useEffect(() => {
+        setFullImg(multiImg[0]?.url)
+        setColorHexCode(multiImg[0]?.colorHexCode)
+        setColorName(multiImg[0]?.colorName)
+        if (productDetails?.size?.length > 0) {
+            setSizeName(productDetails?.size[0]?.label)
+        }
+
+    }, [productDetails])
     return (
         <View style={styles.container}>
             <SecondaryHeader icon={share} navigation={navigation} />
