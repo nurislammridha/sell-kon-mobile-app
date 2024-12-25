@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useState } from 'react'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import PrimaText from './PrimaText'
 import PlusMinus from './PlusMinus'
 import MyButton from './MyButton'
@@ -24,10 +24,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   }
 })
-const DetailsBody = (info = {}) => {
-  const { data } = info || {}
+const DetailsBody = ({ data = {}, activeIndex = 0, setActiveIndex }) => {
   const { productImgColor, mrp, regularDiscount, campaignDiscount, brandName, productName, isCampaign } = data || {}
-  // console.log('data', data)
+  const [quantity, setQuantity] = useState(1)
+  const handlePlus = () => {
+
+    setQuantity(quantity < 4 ? quantity + 1 : 5)
+  }
+  const handleMinus = () => {
+    setQuantity(quantity > 0 ? quantity - 1 : 0)
+  }
+  const handleColor = (index) => {
+    setActiveIndex(index)
+    // console.log('index', index)
+  }
+  console.log('activeIndx', activeIndex)
   return (
     <View style={styles.container}>
       <PrimaText
@@ -70,6 +81,9 @@ const DetailsBody = (info = {}) => {
           height={32}
           btnWidth={32}
           btnHeight={32}
+          handlePlus={handlePlus}
+          handleMinus={handleMinus}
+          quantity={quantity}
         />
       </View>
       <View style={styles.colorsCon}>
@@ -79,19 +93,26 @@ const DetailsBody = (info = {}) => {
           color='#7D7D7D'
         />
         <View style={styles.colors}>
-          {productImgColor?.map((item, index) => (
-            <MyButton
-              key={index}
-              borderWidth={1}
-              borderColor="#E8E8E8"
-              color="#000"
-              content={item?.colorName}
-              width={80}
-              height={32}
-              marginRight={8}
-            />
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
+            {productImgColor?.map((item, index) => (
+              item?.colorName.length > 0 && <MyButton
+                key={index}
+                borderWidth={1}
+                borderColor={activeIndex === index ? "#f54c54" : "#E8E8E8"} //
+                color="#000"
+                content={item?.colorName}
+                width={'auto'}
+                height={32}
+                marginRight={8}
+                onPress={() => handleColor(index)}
+              />
 
-          ))}
+            ))}
+          </ScrollView>
+
         </View>
       </View>
       <PrimaText fontSize={14} marginTop={14} content='Have any question? Please contact us.' />

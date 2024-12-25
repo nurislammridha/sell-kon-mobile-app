@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
+import { Dimensions, Image, ScrollView, StyleSheet, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import share from '../assets/icons/share_icon.png'
 import Slider from '../components/Slider'
 import pro from '../assets/images/pro3.jpg'
+import sl from '../assets/images/slide1.png'
 import DetailsBody from '../components/DetailsBody'
 import PrimaText from '../components/PrimaText'
 import Product from '../components/Product'
@@ -13,6 +14,7 @@ import MyButton from '../components/MyButton'
 import SoldBy from '../components/SoldBy'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProductDetailsById } from '../redux/_redux/CommonAction'
+import Carousel from '../components/Carousel'
 const styles = StyleSheet.create({
     container: {
         // paddingTop: 16,
@@ -66,10 +68,12 @@ const Details = ({ navigation, route }) => {
     // console.log('fullImg', fullImg)
     // console.log('data', availableQuantity)
     const [quantity, setQuantity] = useState(1)
+    const [activeIndex, setActiveIndex] = useState(0);
     const productDetails = useSelector((state) => state.homeInfo.productDetails);
     const multiImg = productDetails?.productImgColor || []
     const { productImgColor } = productDetails || {}
     // console.log('id', productImgColor)
+    // console.log('activeIndex', activeIndex)
     useEffect(() => {
         dispatch(ProductDetailsById(id));
     }, [id])
@@ -87,15 +91,24 @@ const Details = ({ navigation, route }) => {
             <SecondaryHeader icon={share} navigation={navigation} />
             <ScrollView>
                 <View style={styles.slider}>
-                    <Slider
+                    {/* <Slider
                         paginationTop={-20}
                         data={productImgColor || []}
                         isDescriptionPage
                         // height={254}
                         height={width}
+                    /> */}
+                    <Carousel
+                        images={productImgColor}
+                        activeIndex={activeIndex}
+                        setActiveIndex={setActiveIndex}
                     />
                 </View>
-                <DetailsBody data={productDetails || {}} />
+                <DetailsBody
+                    data={productDetails || {}}
+                    activeIndex={activeIndex}
+                    setActiveIndex={setActiveIndex}
+                />
                 <View style={styles.proDeatils}>
                     <SoldBy navigation={navigation} />
                 </View>

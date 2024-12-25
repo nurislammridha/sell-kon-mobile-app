@@ -1,7 +1,7 @@
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
-import user from '../assets/icons/plus.png'
-import minus from '../assets/icons/bKash.png'
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
+import pp from '../assets/icons/pp.png'
+import minus from '../assets/icons/mm.png'
 import PrimaText from './PrimaText'
 import usr from '../assets/icons/google.png'
 const styles = StyleSheet.create({
@@ -16,16 +16,17 @@ const styles = StyleSheet.create({
         // backgroundColor: "#F00"
     }
 })
-const PlusMinus = ({ width = 80, height = 24, btnWidth = 24, btnHeight = 24 }) => {
+const PlusMinus = ({ width = 80, height = 24, btnWidth = 24, btnHeight = 24, handleMinus, handlePlus, quantity }) => {
     return (
         <View style={[styles.container, { width, height }]}>
-            <Image source={usr} style={{ width: btnWidth, height: btnHeight }} />
+            <TouchableOpacity onPress={() => handleMinus()}><Image source={minus} style={{ width: btnWidth, height: btnHeight, backgroundColor: '#ddd' }} /></TouchableOpacity>
             <PrimaText
                 fontSize={16}
                 fontWeight='medium'
-                content='1'
+                content={quantity}
             />
-            <Image source={usr} style={{ width: btnWidth, height: btnHeight }} />
+            <TouchableOpacity onPress={() => handlePlus()}><Image source={pp} style={{ width: btnWidth, height: btnHeight, backgroundColor: '#ddd' }} /></TouchableOpacity>
+
         </View>
     )
 }
