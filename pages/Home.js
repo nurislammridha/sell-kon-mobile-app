@@ -42,7 +42,7 @@ const Home = ({ navigation, route }) => {
             setIsLogin(res ? true : false)
         })
     }, [])
-    console.log('isLogin', isLogin)
+    // console.log('isLogin', isLogin)
     return (
         <View style={styles.container}>
             {/* header section */}

@@ -70,6 +70,7 @@ const Details = ({ navigation, route }) => {
     const [quantity, setQuantity] = useState(1)
     const [activeIndex, setActiveIndex] = useState(0);
     const productDetails = useSelector((state) => state.homeInfo.productDetails);
+    const { sellerInfo } = productDetails || {}
     const multiImg = productDetails?.productImgColor || []
     const { productImgColor } = productDetails || {}
     // console.log('id', productImgColor)
@@ -110,7 +111,10 @@ const Details = ({ navigation, route }) => {
                     setActiveIndex={setActiveIndex}
                 />
                 <View style={styles.proDeatils}>
-                    <SoldBy navigation={navigation} />
+                    <SoldBy
+                        navigation={navigation}
+                        data={sellerInfo || {}}
+                    />
                 </View>
                 <View style={styles.proDeatils}>
                     <PrimaText

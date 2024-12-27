@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import pro from '../assets/images/pro3.jpg'
 import cart from '../assets/icons/shop_cart.png'
 const styles = StyleSheet.create({
@@ -53,27 +53,30 @@ const styles = StyleSheet.create({
     },
     cart: {
         width: 33,
-        height: 33
+        height: 33,
+        // borderWidth: 1,
+        // borderColor: '#f00',
+        backgroundColor: "#ddd"
     }
 })
-const ProductCart = ({ marginTop = 0, width = 163, height = "auto" }) => {
+const ProductCart = ({ marginTop = 0, width = 163, height = "auto", data }) => {
+    const { productIcon, productName, mrp, regularDiscount } = data || {}
     return (
         <View style={[styles.container, { marginTop, width, height }]}>
             <View style={styles.proImgCon}>
-                <Image source={pro} style={{ width, height: width, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
+                <Image source={{ uri: productIcon?.url }} style={{ width, height: width, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
             </View>
             <View style={styles.txtCon}>
                 <Text style={styles.txt}>
-                    Lorem10 ispsum set amet csjkdf 100
-                    Lorem10 ispsum set amet csjkdf 100
+                    {productName || ""}
                 </Text>
             </View>
             <View style={styles.bot}>
                 <View>
-                    <Text style={styles.del}>&#2547; 23,0000</Text>
-                    <Text style={styles.price}>&#2547; 32,30,000</Text>
+                    <Text style={styles.del}>&#2547;{mrp || ""}</Text>
+                    <Text style={styles.price}>&#2547;{regularDiscount || ""}</Text>
                 </View>
-                <Image source={cart} style={styles.cart} />
+                <TouchableOpacity onPress={() => console.log("HI")}><Image source={cart} style={styles.cart} /></TouchableOpacity>
             </View>
         </View>
     )

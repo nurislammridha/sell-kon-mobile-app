@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
         marginRight: 4
     }
 })
-const SoldBy = ({ navigation }) => {
+const SoldBy = ({ navigation, data }) => {
+    const { shopLogo, shopName, sellerAddress, _id } = data || {}
     return (
         <View style={styles.container}>
             <View style={styles.sold}>
@@ -65,9 +66,9 @@ const SoldBy = ({ navigation }) => {
                 />
             </View>
             <View style={styles.con}>
-                <Image source={usr} style={styles.img} />
+                <Image source={{ uri: shopLogo?.url }} style={styles.img} />
                 <View>
-                    <PrimaText content='SellKon Mall' fontSize={14} />
+                    <PrimaText content={shopName} fontSize={14} />
                     <View style={styles.items}>
                         <Image source={star} style={styles.star} />
                         <Image source={star} style={styles.star} />
@@ -80,7 +81,7 @@ const SoldBy = ({ navigation }) => {
             </View>
             <View style={styles.add}>
                 <Image source={address} style={styles.icn} />
-                <PrimaText content='House #1757, Road-3, Block A, Bashundhara riverview, keraniganj, Dhaka' fontSize={13} />
+                <PrimaText content={sellerAddress} fontSize={13} />
             </View>
             <View style={styles.add}>
                 <Image source={period} style={styles.icn} />
@@ -88,7 +89,7 @@ const SoldBy = ({ navigation }) => {
             </View>
             <View style={styles.add}>
                 <Image source={delivery} style={styles.icn} />
-                <PrimaText content='Delivery in 1 to 3 days' fontSize={13} />
+                <PrimaText content='৳50 (৳100 Outside Area)' fontSize={13} />
             </View>
             <MyButton
                 content='Visit Store'
@@ -100,8 +101,7 @@ const SoldBy = ({ navigation }) => {
                 height={32}
                 fontSize={13}
                 borderWidth={1}
-                navigation={navigation}
-                url='Shop'
+                onPress={() => navigation.navigate("Shop", { id: _id })}
             />
         </View>
     )

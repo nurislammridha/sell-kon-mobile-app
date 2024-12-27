@@ -1,11 +1,13 @@
-import React from 'react'
-import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import SecondaryHeader from '../components/SecondaryHeader'
 import filter from '../assets/icons/filter.png'
 import Product from '../components/Product'
 import ProductCart from '../components/ProductCart'
 import ShopAddress from '../components/ShopAddress'
 import MyButton from '../components/MyButton'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetBrands, GetCategories, GetFilterProduct, GetSellerById } from '../redux/_redux/CommonAction'
 const styles = StyleSheet.create({
     container: {
         width: "100%",
@@ -28,8 +30,29 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
 })
-const ShopPage = ({ navigation }) => {
+const ShopPage = ({ navigation, route, search = "" }) => {
     const { width } = Dimensions.get('screen')
+    const { id } = route.params;
+    const dispatch = useDispatch()
+    const sellerDetails = useSelector((state) => state.homeInfo.sellerDetails);
+    const proInfo = useSelector((state) => state.homeInfo.productsList);
+    const { pagination, products } = proInfo || {}
+    const { shopLogo, shopName } = sellerDetails || {}
+    const [isShortBy, setShortBy] = useState(false)
+    const [short, setShort] = useState(0)
+    const [shortName, setShortName] = useState("Select")
+    const [categoriesId, setCategoriesId] = useState([])
+    const [brandsId, setBrandsId] = useState([])
+    const [isClose, setClose] = useState(false)
+    useEffect(() => {
+        // dispatch(GetCategories())
+        // dispatch(GetBrands())
+        dispatch(GetSellerById(id))
+    }, [id])
+    useEffect(() => {
+        dispatch(GetFilterProduct({ categoriesId, brandsId, sellersId: [id], isShortBy, short, search, page: 1, limit: 20 }))
+    }, [categoriesId, brandsId, short, id, search])
+    // console.log('proInfo', pagination)
     return (
         <View style={styles.container}>
             <SecondaryHeader
@@ -40,13 +63,14 @@ const ShopPage = ({ navigation }) => {
             />
             <ScrollView>
                 <View style={styles.proRel}>
-                    <ShopAddress />
+                    <ShopAddress data={sellerDetails} />
                 </View>
                 <View style={styles.proRel}>
-
                     <View style={styles.products}>
-                        {[1, 2, 3, 4, 4, 5, 4].map((_, indx) => (
-                            <ProductCart key={indx} marginTop={16} width={(width / 2) - 23} />
+                        {products?.length && products.map((item, indx) => (
+                            <TouchableOpacity key={indx} onPress={() => navigation.navigate("Details", { id: item?._id })}>
+                                <ProductCart marginTop={16} width={(width / 2) - 23} data={item} />
+                            </TouchableOpacity>
                         ))}
                     </View>
                 </View>

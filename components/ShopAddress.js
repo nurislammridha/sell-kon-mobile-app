@@ -41,15 +41,16 @@ const styles = StyleSheet.create({
         marginLeft: 2
     }
 })
-const ShopAddress = () => {
+const ShopAddress = ({ data }) => {
+    const { shopLogo, shopName, sellerAddress } = data || {}
     return (
         <View style={styles.container}>
             <Image source={shop} style={styles.img} />
             <View style={styles.bot}>
-                <Image source={logo} style={styles.icn} />
+                <Image source={{ uri: shopLogo?.url }} style={styles.icn} />
                 <View>
                     <PrimaText
-                        content='Hyndai sonata sedan'
+                        content={shopName}
                         fontSize={16}
                         fontWeight="medium"
                         color='#333'
@@ -62,7 +63,7 @@ const ShopAddress = () => {
                         marginTop={2}
                     />
                     <PrimaText
-                        content='Mirpur Dhaka'
+                        content={sellerAddress}
                         fontSize={12}
                         color='#878787'
                         marginTop={2}
